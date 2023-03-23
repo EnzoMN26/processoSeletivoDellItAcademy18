@@ -62,6 +62,10 @@ public class Viagem {
         return new ArrayList<>(custoTrechos);
     }
 
+    public double getCustoTotal(){
+        return this.custoTotal;
+    }
+
     //Calcula o custo total somando o custo dos trechos.
     public void calculaCustoTotal(){
         for (Integer custo : custoTrechos) {
