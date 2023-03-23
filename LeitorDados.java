@@ -10,15 +10,29 @@ public class LeitorDados {
     private Map<String, Integer> cidadeParaInt;
     private Integer[][] matrizDistancias;
 
-    public void readFile() throws IOException{
+    public Integer[][]  readFile() throws IOException{
 
         cidadeParaInt = new HashMap<String, Integer>();
+        
         BufferedReader br = new BufferedReader(new FileReader("distancias.csv"));
         String line = br.readLine();
         int i = 0;
         for (String cidade : line.split(";")) {
             cidadeParaInt.put(cidade, i++);
         } 
+        int qntCidades = cidadeParaInt.size();
+        matrizDistancias = new Integer[qntCidades][qntCidades];
+
+        int numeroLinha = 0;
+        while ((line = br.readLine()) != null){
+            String[] values = line.split(";");
+            for (int j = 0; j < values.length; j++) {
+                matrizDistancias[numeroLinha][j] = Integer.parseInt(values[j]);
+            }
+            numeroLinha++;
+        }
+
+        return matrizDistancias;
     }
 }
 
