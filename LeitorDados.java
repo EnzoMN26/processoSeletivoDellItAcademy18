@@ -1,11 +1,7 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -16,7 +12,7 @@ public class LeitorDados {
 
     public void readFile() throws IOException{
 
-        cidadeParaInt = new HashMap();
+        cidadeParaInt = new HashMap<String, Integer>();
         BufferedReader br = new BufferedReader(new FileReader("distancias.csv"));
         String line = br.readLine();
         int i = 0;
