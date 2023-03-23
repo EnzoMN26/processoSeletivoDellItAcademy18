@@ -1,28 +1,38 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class LeitorDados {
     
+    //Dicionario que faz a associacao de uma cidade ao seu index na matriz de dados.
     private Map<String, Integer> cidadeParaInt;
+    //Matriz onde ficaram armazenadas as distancias entre cidades.
     private Integer[][] matrizDistancias;
 
-    public Integer[][]  readFile() throws IOException{
+    //Funcao para a leitura dos dados presentes no arquivo csv.
+    public void  readFile() throws IOException{
 
         cidadeParaInt = new HashMap<String, Integer>();
         
+        //Leitura do arquivo contendo os dados.
         BufferedReader br = new BufferedReader(new FileReader("distancias.csv"));
         String line = br.readLine();
+
+        //Construcao do didicionario entre cidade e index.
         int i = 0;
         for (String cidade : line.split(";")) {
             cidadeParaInt.put(cidade, i++);
         } 
+
+        //Inicializacao da matriz com a quantidade de cidades existentes.
         int qntCidades = cidadeParaInt.size();
         matrizDistancias = new Integer[qntCidades][qntCidades];
 
+        //Construcao da matriz de distancias.
         int numeroLinha = 0;
         while ((line = br.readLine()) != null){
             String[] values = line.split(";");
@@ -31,27 +41,15 @@ public class LeitorDados {
             }
             numeroLinha++;
         }
+    }
 
-        return matrizDistancias;
+    public int getDistancia(String cidade1, String cidade2){
+
+        //Limpando os acentos dos nomes das cidades e tranformando em UpperCase.
+        cidade1 = Normalizer.normalize(cidade1, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toUpperCase();
+        cidade2 = Normalizer.normalize(cidade2, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toUpperCase();
+
+        //Retorna a distancia atraves do index de cada cidade identificado pelo dicionario.
+        return matrizDistancias[cidadeParaInt.get(cidade1)][cidadeParaInt.get(cidade2)];
     }
 }
-
-
-
-// public class LeitorDados {
-    
-//     private Integer[] cidadeParaInt;
-//     private Integer[][] matrizDistancias;
-
-//     public Integer[][] getAcess() throws FileNotFoundException, IOException{
-        
-//         try (BufferedReader br = new BufferedReader(new FileReader("distancias.csv"))) {
-//             String line;
-//             while ((line = br.readLine()) != null) {
-//                 String[] values = line.split(";");
-//                 records.add(Arrays.asList(values));
-//             }
-//         }
-//         return null;
-//     }
-// }
