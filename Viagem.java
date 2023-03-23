@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Viagem {
     
@@ -11,19 +10,19 @@ public class Viagem {
     private Caminhao caminhaoPequeno;
     private Caminhao caminhaoMedio;
     private Caminhao caminhaoGrande;
-    private Scanner sc;
     private LeitorDados leitor;
 
 
     public Viagem(){
 
-        this.sc = new Scanner(System.in);
-        this.leitor = new LeitorDados();
-        this.cidades = new ArrayList<>();
+        this.pesoTotal = 0;
+        this.custoTotal = 0;
         this.custoTrechos = new ArrayList<>();
+        this.cidades = new ArrayList<>();
         this.caminhaoPequeno = new Caminhao(4.87);
         this.caminhaoMedio = new Caminhao(11.92);
         this.caminhaoGrande = new Caminhao(27.44);
+        this.leitor = new LeitorDados();
 
         //Chama a funcao que promove a leitura dos dados, caso ocorra algum erro o programa é fechado.
         try{
@@ -63,6 +62,13 @@ public class Viagem {
         return new ArrayList<>(custoTrechos);
     }
 
+    //Calcula o custo total somando o custo dos trechos.
+    public void calculaCustoTotal(){
+        for (Integer custo : custoTrechos) {
+            this.custoTotal+= custo;
+        }
+    }
+
     //Funcao que faz os calculos necessários armazenando os dados gerados tanto nos caminhoes como na propria classe.
     public Double[] calcula(int dist){
 
@@ -94,10 +100,19 @@ public class Viagem {
         custos[0] = caminhaoPequeno.getCustoTotal(dist);
         custos[1] = caminhaoMedio.getCustoTotal(dist);
         custos[2] = caminhaoGrande.getCustoTotal(dist);
-        //Armazenamento do custo total
-        this.custoTotal = custos[0] + custos[1] + custos[2];
 
+        calculaCustoTotal();
 
         return custos;
+    }
+
+    public String getInfoViagem(){
+        String infos = "";
+        for (int i = 0; i < cidades.size()-1; i++) {
+            String cidade1 = cidades.get(i);
+            String cidade2 = cidades.get(i+1);
+            infos += cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + "\n";
+        }
+        return infos;
     }
 }

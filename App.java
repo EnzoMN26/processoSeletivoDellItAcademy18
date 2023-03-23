@@ -10,6 +10,8 @@ public class App {
         //Chama a funcao que promove a leitura dos dados, caso ocorra algum erro o programa é fechado.
         viagem.addCidade("porto alegre");
         viagem.addCidade("sao paulo");
-        System.out.println(viagem.getCustoTrechos());
+        viagem.addCidade("brasilia");
+        viagem.addCidade("aracaju");
+        System.out.println(viagem.getInfoViagem());
     }
 }
