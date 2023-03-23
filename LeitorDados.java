@@ -41,6 +41,12 @@ public class LeitorDados {
             }
             numeroLinha++;
         }
+        br.close();
+    }
+
+    public boolean containsCidade(String cidade){
+        cidade = Normalizer.normalize(cidade, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toUpperCase();
+        return cidadeParaInt.containsKey(cidade);
     }
 
     public int getDistancia(String cidade1, String cidade2){

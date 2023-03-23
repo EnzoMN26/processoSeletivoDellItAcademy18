@@ -1,5 +1,5 @@
 public class Caminhao {
-    
+
     private double preco;
     private double custoTotal;
     private int qntCaminhao;
@@ -14,11 +14,8 @@ public class Caminhao {
         this.qntCaminhao += x;
     };
 
-    public void percorre(int distancia){
+    public double getCustoTotal(int distancia){
         this.custoTotal += (this.preco * distancia) * qntCaminhao;
-    }
-
-    public double getCustoTotal(){
         return this.custoTotal;
     }
 

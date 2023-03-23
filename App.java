@@ -8,7 +8,8 @@ public class App {
         Viagem viagem = new Viagem();
         
         //Chama a funcao que promove a leitura dos dados, caso ocorra algum erro o programa é fechado.
-
-        System.out.println(viagem.calculaCaminhao(86, 1));
+        viagem.addCidade("porto alegre");
+        viagem.addCidade("sao paulo");
+        System.out.println(viagem.getCustoTrechos());
     }
 }

@@ -37,37 +37,67 @@ public class Viagem {
         
     }
     
-    public void addCidade(String cidade){
-        
+    /*Adiciona cidade na lista de caminho, caso a cidade exista e ainda nao tenha sido adicionada retorna 0,
+    caso a cidade exista mas ja tenha sido adicionada retorna 1 e caso a cidade nao exista retorna 2.*/
+    public int addCidade(String cidade){
+
+        if(leitor.containsCidade(cidade)){
+            
+            if(!cidades.contains(cidade)){
+
+                cidades.add(cidade);
+                int tamanho = cidades.size();
+
+                if(tamanho > 1){
+                    custoTrechos.add(leitor.getDistancia(cidades.get(tamanho-2), cidade));
+                }
+                return 0;
+            }
+            return 1;
+        }
+        return 2;
     }
 
-    //Funcao que recebe o peso e a distancia do trajeto e retorna a quantidade de caminhoes e o custo.
-    public String calculaCaminhao(int peso, int dist){
-        /* Criando um array de 4 posicoes onde as 3 primeiras sao referentes as informacoes 
-        de cada caminhao e a ultima a informacoes gerais, como o custo total. Dados separados por ; */
+    //PARA TESTE
+    public ArrayList getCustoTrechos(){
+        return new ArrayList<>(custoTrechos);
+    }
 
+    //Funcao que faz os calculos necessários armazenando os dados gerados tanto nos caminhoes como na propria classe.
+    public Double[] calcula(int dist){
+
+        Double[] custos = new Double[3];
         //Logica para o calculo da quantidade de caminhoes.
-        if(peso >= 9){
-            caminhaoGrande.addCaminhao(peso/10);
-            if(peso%10 == 9){
+        if(pesoTotal >= 9){
+
+            caminhaoGrande.addCaminhao(pesoTotal/10);
+
+            if(pesoTotal%10 == 9){
                 caminhaoGrande.addCaminhao(1);
             }
         }
-        if(peso%10 > 2){
-            caminhaoMedio.addCaminhao(((peso%10)/4));
-            if((peso%10)%4 == 3){
+        if(pesoTotal%10 > 2){
+
+            caminhaoMedio.addCaminhao(((pesoTotal%10)/4));
+            
+            if((pesoTotal%10)%4 == 3){
                 caminhaoMedio.addCaminhao(1);
             }
         }
-        if((peso%10)%4 == 2){
+        if((pesoTotal%10)%4 == 2){
             caminhaoPequeno.addCaminhao(2);
         }
-        else if((peso%10)%4 == 1){
+        else if((pesoTotal%10)%4 == 1){
             caminhaoPequeno.addCaminhao(1);
         }
         
-        this.custoTotal = caminhaoPequeno.getCustoTotal() + caminhaoMedio.getCustoTotal() + caminhaoGrande.getCustoTotal();
+        custos[0] = caminhaoPequeno.getCustoTotal(dist);
+        custos[1] = caminhaoMedio.getCustoTotal(dist);
+        custos[2] = caminhaoGrande.getCustoTotal(dist);
+        //Armazenamento do custo total
+        this.custoTotal = custos[0] + custos[1] + custos[2];
 
-        return caminhaoPequeno.getQuantidade() + " - " + caminhaoMedio.getQuantidade() + " - " + caminhaoGrande.getQuantidade();
+
+        return custos;
     }
 }
