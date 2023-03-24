@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Viagem {
+public class Transporte {
     
     private int pesoTotal;
     private double custoTotal;
@@ -13,7 +13,7 @@ public class Viagem {
     private LeitorDados leitor;
 
 
-    public Viagem(){
+    public Transporte(){
 
         this.pesoTotal = 0;
         this.custoTotal = 0;
