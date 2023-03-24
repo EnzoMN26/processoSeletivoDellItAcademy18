@@ -3,12 +3,12 @@ import java.util.ArrayList;
 
 public class Transporte {
     
-    private int pesoTotal;
+    private double pesoTotal;
     private double custoTotal;
     private int distanciaTotal;
-    private ArrayList<Double[4]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
+    private ArrayList<Double[]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
     private ArrayList<String> cidades; //Armazena todas as cidades do trajeto;
-    private ArrayList<String[3]> produtos; //Armazena todos os produtos, com suas quantidades e pesos.
+    private ArrayList<String[]> produtos; //Armazena todos os produtos, com suas quantidades e pesos.
     private Caminhao caminhaoPequeno;
     private Caminhao caminhaoMedio;
     private Caminhao caminhaoGrande;
@@ -52,7 +52,7 @@ public class Transporte {
                 int tamanho = cidades.size();
 
                 if(tamanho > 1){
-                    int distancia = leitor.getDistancia(cidades.get(tamanho-2), cidade)
+                    int distancia = leitor.getDistancia(cidades.get(tamanho-2), cidade);
                     this.distanciaTotal += distancia;
                     custoTrechos.add(calculaCusto(distancia));
                 }
@@ -67,8 +67,8 @@ public class Transporte {
     public void addProduto(String nome, int quantidade, double peso){
         String[] temp = new String[3];
         temp[0] = nome;
-        temp[1] = quantidade;
-        temp[2] = peso;
+        temp[1] = ""+quantidade;
+        temp[2] = ""+peso;
         this.pesoTotal += quantidade * peso;
         this.produtos.add(temp);
         calculaCaminhoes();
@@ -112,7 +112,7 @@ public class Transporte {
         custos[2] = caminhaoGrande.getCusto(dist);
         custos[3] = custos[0] + custos[1] + custos[2];
 
-        calculaCustoTotal(custo[3]);
+        calculaCustoTotal(custos[3]);
 
         return custos;
     }
@@ -130,7 +130,7 @@ public class Transporte {
 
 
     //Calcula o custo total somando o custo dos trechos.
-    public void calculaCustoTotal(double custo){
+    private void calculaCustoTotal(double custo){
         this.custoTotal += custo;
     }
 
@@ -140,8 +140,15 @@ public class Transporte {
         for (int i = 0; i < cidades.size()-1; i++) {
             String cidade1 = cidades.get(i);
             String cidade2 = cidades.get(i+1);
-            infos += cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + " : custoC1: " + custos[i][0] + " : custoC2: " + custos[i][1] + " : custoC3: " + custos[i][2] + " : custoTrecho: " + custos[i][3];
+            infos += "----------------------\n" + cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
+            "\ncustoC1: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + "\ncustoC2: R$" + String.format("%.2f", custoTrechos.get(i)[1]) + "\ncustoC3: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + "\ncustoTrecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------";
         }
+        infos += "\nInformacoes gerais\n" +
+                 "\nCaminhoes pequenos: " + caminhaoPequeno.getQuantidade() + " veiculos" +
+                 "\nCaminhoes medios: " + caminhaoMedio.getQuantidade() + " veiculos" +
+                 "\nCaminhoes grandes: " + caminhaoGrande.getQuantidade() +" veiculos" +
+                 "\nCusto total: R$" + String.format("%.2f", custoTotal) +
+                 "\nPeso total: " + pesoTotal;
         return infos;
     }
 }
