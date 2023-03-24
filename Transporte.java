@@ -5,9 +5,10 @@ public class Transporte {
     
     private int pesoTotal;
     private double custoTotal;
+    private int distanciaTotal;
     private ArrayList<Double[4]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
     private ArrayList<String> cidades; //Armazena todas as cidades do trajeto;
-    private ArrayList<Double[3]> produtos; //Armazena todos os produtos, com suas quantidades e pesos.
+    private ArrayList<String[3]> produtos; //Armazena todos os produtos, com suas quantidades e pesos.
     private Caminhao caminhaoPequeno;
     private Caminhao caminhaoMedio;
     private Caminhao caminhaoGrande;
@@ -18,6 +19,7 @@ public class Transporte {
 
         this.pesoTotal = 0;
         this.custoTotal = 0;
+        this.distanciaTotal = 0;
         this.custoTrechos = new ArrayList<>();
         this.cidades = new ArrayList<>();
         this.produtos = new ArrayList<>();
@@ -50,7 +52,9 @@ public class Transporte {
                 int tamanho = cidades.size();
 
                 if(tamanho > 1){
-                    custoTrechos.add(calcula(leitor.getDistancia(cidades.get(tamanho-2), cidade)));
+                    int distancia = leitor.getDistancia(cidades.get(tamanho-2), cidade)
+                    this.distanciaTotal += distancia;
+                    custoTrechos.add(calculaCusto(distancia));
                 }
                 return 0;
             }
@@ -61,19 +65,17 @@ public class Transporte {
 
     //Adiciona um produto ao transporte e promove o calculo do peso total que sera usado no metodo "calcula".
     public void addProduto(String nome, int quantidade, double peso){
-        Double[3] temp = new Double[];
+        String[] temp = new String[3];
         temp[0] = nome;
         temp[1] = quantidade;
         temp[2] = peso;
         this.pesoTotal += quantidade * peso;
         this.produtos.add(temp);
+        calculaCaminhoes();
     }
 
 
-    //Funcao que recebe a distancia a ser percorrida e faz os calculos necessarios e retorna um array com o custo de cada caminhao e o custo somado no trecho.
-    public Double[] calcula(int dist){
-
-        Double[] custos = new Double[3];
+    public void calculaCaminhoes(){
         //Logica para o calculo da quantidade de caminhoes.
         if(pesoTotal >= 9){
 
@@ -97,11 +99,17 @@ public class Transporte {
         else if((pesoTotal%10)%4 == 1){
             caminhaoPequeno.qntCaminhao(1);
         }
-        
+    }
+
+    //Funcao que recebe a distancia a ser percorrida e faz os calculos de custo retornando um array com o custo de cada caminhao e o custo somado no trecho.
+    public Double[] calculaCusto(int dist){
+
+        Double[] custos = new Double[4];
+
         //Adiciona o custo de cada caminhao no trecho em especifico.
-        custos[0] = caminhaoPequeno.getCustoTotal(dist);
-        custos[1] = caminhaoMedio.getCustoTotal(dist);
-        custos[2] = caminhaoGrande.getCustoTotal(dist);
+        custos[0] = caminhaoPequeno.getCusto(dist);
+        custos[1] = caminhaoMedio.getCusto(dist);
+        custos[2] = caminhaoGrande.getCusto(dist);
         custos[3] = custos[0] + custos[1] + custos[2];
 
         calculaCustoTotal(custo[3]);
@@ -132,7 +140,7 @@ public class Transporte {
         for (int i = 0; i < cidades.size()-1; i++) {
             String cidade1 = cidades.get(i);
             String cidade2 = cidades.get(i+1);
-            infos += cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + "\n";
+            infos += cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + " : custoC1: " + custos[i][0] + " : custoC2: " + custos[i][1] + " : custoC3: " + custos[i][2] + " : custoTrecho: " + custos[i][3];
         }
         return infos;
     }
