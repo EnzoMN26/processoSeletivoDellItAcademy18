@@ -5,8 +5,9 @@ public class Transporte {
     
     private int pesoTotal;
     private double custoTotal;
-    private ArrayList<Integer> custoTrechos;
-    private ArrayList<String> cidades;
+    private ArrayList<Double[4]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
+    private ArrayList<String> cidades; //Armazena todas as cidades do trajeto;
+    private ArrayList<Double[3]> produtos; //Armazena todos os produtos, com suas quantidades e pesos.
     private Caminhao caminhaoPequeno;
     private Caminhao caminhaoMedio;
     private Caminhao caminhaoGrande;
@@ -19,6 +20,7 @@ public class Transporte {
         this.custoTotal = 0;
         this.custoTrechos = new ArrayList<>();
         this.cidades = new ArrayList<>();
+        this.produtos = new ArrayList<>();
         this.caminhaoPequeno = new Caminhao(4.87);
         this.caminhaoMedio = new Caminhao(11.92);
         this.caminhaoGrande = new Caminhao(27.44);
@@ -48,7 +50,7 @@ public class Transporte {
                 int tamanho = cidades.size();
 
                 if(tamanho > 1){
-                    custoTrechos.add(leitor.getDistancia(cidades.get(tamanho-2), cidade));
+                    custoTrechos.add(calcula(leitor.getDistancia(cidades.get(tamanho-2), cidade)));
                 }
                 return 0;
             }
@@ -57,59 +59,74 @@ public class Transporte {
         return 2;
     }
 
-    //PARA TESTE
-    public ArrayList getCustoTrechos(){
-        return new ArrayList<>(custoTrechos);
+    //Adiciona um produto ao transporte e promove o calculo do peso total que sera usado no metodo "calcula".
+    public void addProduto(String nome, int quantidade, double peso){
+        Double[3] temp = new Double[];
+        temp[0] = nome;
+        temp[1] = quantidade;
+        temp[2] = peso;
+        this.pesoTotal += quantidade * peso;
+        this.produtos.add(temp);
     }
 
-    public double getCustoTotal(){
-        return this.custoTotal;
-    }
 
-    //Calcula o custo total somando o custo dos trechos.
-    public void calculaCustoTotal(){
-        for (Integer custo : custoTrechos) {
-            this.custoTotal+= custo;
-        }
-    }
-
-    //Funcao que faz os calculos necessários armazenando os dados gerados tanto nos caminhoes como na propria classe.
+    //Funcao que recebe a distancia a ser percorrida e faz os calculos necessarios e retorna um array com o custo de cada caminhao e o custo somado no trecho.
     public Double[] calcula(int dist){
 
         Double[] custos = new Double[3];
         //Logica para o calculo da quantidade de caminhoes.
         if(pesoTotal >= 9){
 
-            caminhaoGrande.addCaminhao(pesoTotal/10);
+            caminhaoGrande.qntCaminhao(pesoTotal/10);
 
             if(pesoTotal%10 == 9){
-                caminhaoGrande.addCaminhao(1);
+                caminhaoGrande.qntCaminhao(1);
             }
         }
         if(pesoTotal%10 > 2){
 
-            caminhaoMedio.addCaminhao(((pesoTotal%10)/4));
+            caminhaoMedio.qntCaminhao(((pesoTotal%10)/4));
             
             if((pesoTotal%10)%4 == 3){
-                caminhaoMedio.addCaminhao(1);
+                caminhaoMedio.qntCaminhao(1);
             }
         }
         if((pesoTotal%10)%4 == 2){
-            caminhaoPequeno.addCaminhao(2);
+            caminhaoPequeno.qntCaminhao(2);
         }
         else if((pesoTotal%10)%4 == 1){
-            caminhaoPequeno.addCaminhao(1);
+            caminhaoPequeno.qntCaminhao(1);
         }
         
+        //Adiciona o custo de cada caminhao no trecho em especifico.
         custos[0] = caminhaoPequeno.getCustoTotal(dist);
         custos[1] = caminhaoMedio.getCustoTotal(dist);
         custos[2] = caminhaoGrande.getCustoTotal(dist);
+        custos[3] = custos[0] + custos[1] + custos[2];
 
-        calculaCustoTotal();
+        calculaCustoTotal(custo[3]);
 
         return custos;
     }
 
+
+    //PARA TESTE
+    public ArrayList getCustoTrechos(){
+        return new ArrayList<>(custoTrechos);
+    }
+
+    //Retorna o custo total.
+    public double getCustoTotal(){
+        return this.custoTotal;
+    }
+
+
+    //Calcula o custo total somando o custo dos trechos.
+    public void calculaCustoTotal(double custo){
+        this.custoTotal += custo;
+    }
+
+    //Retorna as informacoes referentes ao trechos percorridos no transporte
     public String getInfoViagem(){
         String infos = "";
         for (int i = 0; i < cidades.size()-1; i++) {
