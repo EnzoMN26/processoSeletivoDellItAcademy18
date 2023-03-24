@@ -76,27 +76,35 @@ public class Transporte {
 
 
     public void calculaCaminhoes(){
+        double pesoAtual = pesoTotal;
+        caminhaoGrande.qntCaminhao(0);
+        caminhaoMedio.qntCaminhao(0);
+        caminhaoPequeno.qntCaminhao(0);
         //Logica para o calculo da quantidade de caminhoes.
-        if(pesoTotal >= 9){
+        if(pesoAtual > 8){
 
-            caminhaoGrande.qntCaminhao(pesoTotal/10);
+            caminhaoGrande.qntCaminhao(pesoAtual/10);
+            pesoAtual -= caminhaoGrande.getQuantidade() * 10;
 
-            if(pesoTotal%10 == 9){
-                caminhaoGrande.qntCaminhao(1);
+            if(pesoAtual > 8){
+                caminhaoGrande.addQntCaminhao(1);
+                pesoAtual = 0.0;
             }
         }
-        if(pesoTotal%10 > 2){
+        if(pesoAtual > 2 ){
 
-            caminhaoMedio.qntCaminhao(((pesoTotal%10)/4));
-            
-            if((pesoTotal%10)%4 == 3){
-                caminhaoMedio.qntCaminhao(1);
+            caminhaoMedio.qntCaminhao(pesoAtual/4.0);
+            pesoAtual -= caminhaoMedio.getQuantidade() * 4;
+
+            if(pesoAtual == 3){
+                caminhaoMedio.addQntCaminhao(1);
+                pesoAtual = 0;
             }
         }
-        if((pesoTotal%10)%4 == 2){
+        if(pesoAtual == 2){
             caminhaoPequeno.qntCaminhao(2);
         }
-        else if((pesoTotal%10)%4 == 1){
+        else if(pesoAtual%4 == 1){
             caminhaoPequeno.qntCaminhao(1);
         }
     }
@@ -135,7 +143,7 @@ public class Transporte {
     }
 
     //Retorna as informacoes referentes ao trechos percorridos no transporte
-    public String getInfoViagem(){
+    public String getInfo(){
         String infos = "";
         for (int i = 0; i < cidades.size()-1; i++) {
             String cidade1 = cidades.get(i);

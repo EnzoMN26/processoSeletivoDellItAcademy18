@@ -8,8 +8,12 @@ public class Caminhao {
         this.qntCaminhao = 0;
     }
 
-    public void qntCaminhao(int qnt){
-        this.qntCaminhao = qnt;
+    public void qntCaminhao(double qnt){
+        this.qntCaminhao = (int) qnt;
+    };
+
+    public void addQntCaminhao(int qnt){
+        this.qntCaminhao += qnt;
     };
 
     public double getCusto(int distancia){
@@ -18,6 +22,6 @@ public class Caminhao {
     }
 
     public int getQuantidade(){
-        return qntCaminhao;
+        return this.qntCaminhao;
     }
 }
