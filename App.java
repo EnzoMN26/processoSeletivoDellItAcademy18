@@ -8,7 +8,7 @@ public class App {
         Transporte transporte = new Transporte();
         
         //Chama a funcao que promove a leitura dos dados, caso ocorra algum erro o programa é fechado.
-        transporte.addProduto("celular", 10, 1);
+        transporte.addProduto("celular", 10, 1.34);
         transporte.addProduto("patins", 10, 1);
         transporte.addProduto("garrafa", 9, 1);
         transporte.addCidade("porto alegre");

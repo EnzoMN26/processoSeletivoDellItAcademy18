@@ -88,23 +88,27 @@ public class Transporte {
 
             if(pesoAtual > 8){
                 caminhaoGrande.addQntCaminhao(1);
-                pesoAtual = 0.0;
+                pesoAtual = 0;
             }
         }
-        if(pesoAtual > 2 ){
+        if(pesoAtual > 2){
 
             caminhaoMedio.qntCaminhao(pesoAtual/4.0);
             pesoAtual -= caminhaoMedio.getQuantidade() * 4;
 
-            if(pesoAtual == 3){
+            if(caminhaoMedio.getQuantidade() == 0){
+                caminhaoMedio.qntCaminhao(1);
+                pesoAtual = 0;
+            }
+            else if(pesoAtual > 2){
                 caminhaoMedio.addQntCaminhao(1);
                 pesoAtual = 0;
             }
         }
-        if(pesoAtual == 2){
+        if(pesoAtual > 1){
             caminhaoPequeno.qntCaminhao(2);
         }
-        else if(pesoAtual%4 == 1){
+        else if(pesoAtual == 1){
             caminhaoPequeno.qntCaminhao(1);
         }
     }
@@ -125,6 +129,10 @@ public class Transporte {
         return custos;
     }
 
+    //Calcula o custo total somando o custo dos trechos.
+    private void calculaCustoTotal(double custo){
+        this.custoTotal += custo;
+    }
 
     //PARA TESTE
     public ArrayList getCustoTrechos(){
@@ -134,12 +142,6 @@ public class Transporte {
     //Retorna o custo total.
     public double getCustoTotal(){
         return this.custoTotal;
-    }
-
-
-    //Calcula o custo total somando o custo dos trechos.
-    private void calculaCustoTotal(double custo){
-        this.custoTotal += custo;
     }
 
     //Retorna as informacoes referentes ao trechos percorridos no transporte
