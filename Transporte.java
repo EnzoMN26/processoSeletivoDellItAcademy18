@@ -77,13 +77,13 @@ public class Transporte {
 
     public void calculaCaminhoes(){
         double pesoAtual = pesoTotal;
-        caminhaoGrande.qntCaminhao(0);
-        caminhaoMedio.qntCaminhao(0);
-        caminhaoPequeno.qntCaminhao(0);
+        caminhaoGrande.setQntCaminhao(0);
+        caminhaoMedio.setQntCaminhao(0);
+        caminhaoPequeno.setQntCaminhao(0);
         //Logica para o calculo da quantidade de caminhoes.
         if(pesoAtual > 8){
 
-            caminhaoGrande.qntCaminhao(pesoAtual/10);
+            caminhaoGrande.setQntCaminhao(pesoAtual/10);
             pesoAtual -= caminhaoGrande.getQuantidade() * 10;
 
             if(pesoAtual > 8){
@@ -93,11 +93,11 @@ public class Transporte {
         }
         if(pesoAtual > 2){
 
-            caminhaoMedio.qntCaminhao(pesoAtual/4.0);
+            caminhaoMedio.setQntCaminhao(pesoAtual/4.0);
             pesoAtual -= caminhaoMedio.getQuantidade() * 4;
 
             if(caminhaoMedio.getQuantidade() == 0){
-                caminhaoMedio.qntCaminhao(1);
+                caminhaoMedio.setQntCaminhao(1);
                 pesoAtual = 0;
             }
             else if(pesoAtual > 2){
@@ -106,10 +106,10 @@ public class Transporte {
             }
         }
         if(pesoAtual > 1){
-            caminhaoPequeno.qntCaminhao(2);
+            caminhaoPequeno.setQntCaminhao(2);
         }
         else if(pesoAtual == 1){
-            caminhaoPequeno.qntCaminhao(1);
+            caminhaoPequeno.setQntCaminhao(1);
         }
     }
 

@@ -8,7 +8,7 @@ public class Caminhao {
         this.qntCaminhao = 0;
     }
 
-    public void qntCaminhao(double qnt){
+    public void setQntCaminhao(double qnt){
         this.qntCaminhao = (int) qnt;
     };
 
