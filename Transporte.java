@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Transporte {
     
@@ -150,6 +151,33 @@ public class Transporte {
 
     public int getQntItens(){
         return this.itens.size();
+    }
+
+    public int getQntCidades(){
+        return cidades.size();
+    }
+
+    public String getListaCidades(){
+        LinkedList<String> nomes = leitor.getListaCidades();
+        String infos = "Lista de cidades:\n";
+        for (String string : nomes) {
+            infos += "\n" + string;
+        }
+        return infos;
+    }
+
+    public String getTrajeto(){
+        String infos = "Trajeto:\n";
+        int tamanho = cidades.size();
+        if(tamanho == 1){
+            infos += "\n" + cidades.get(0).toUpperCase();
+        }
+        else{            
+            for (int i = 0; i < tamanho-1; i++) {
+                infos += "\n" + cidades.get(i).toUpperCase() + " ---> " + cidades.get(i+1).toUpperCase();
+            }
+        }
+        return infos;
     }
 
     public String getInfoItens(){

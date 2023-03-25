@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.Normalizer;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 
@@ -12,12 +13,15 @@ public class LeitorDados {
     private Map<String, Integer> cidadeParaInt;
     //Matriz onde ficaram armazenadas as distancias entre cidades.
     private Integer[][] matrizDistancias;
+    //Lista com todas as cidades.
+    private LinkedList<String> nomesCidades;
 
     //Funcao para a leitura dos dados presentes no arquivo csv.
     public void  readFile() throws IOException{
 
         cidadeParaInt = new HashMap<String, Integer>();
-        
+        nomesCidades = new LinkedList<>();
+
         //Leitura do arquivo contendo os dados.
         BufferedReader br = new BufferedReader(new FileReader("distancias.csv"));
         String line = br.readLine();
@@ -26,6 +30,7 @@ public class LeitorDados {
         int i = 0;
         for (String cidade : line.split(";")) {
             cidadeParaInt.put(cidade, i++);
+            nomesCidades.add(cidade);
         } 
 
         //Inicializacao da matriz com a quantidade de cidades existentes.
@@ -57,5 +62,9 @@ public class LeitorDados {
 
         //Retorna a distancia atraves do index de cada cidade identificado pelo dicionario.
         return matrizDistancias[cidadeParaInt.get(cidade1)][cidadeParaInt.get(cidade2)];
+    }
+
+    public LinkedList<String> getListaCidades(){
+        return new LinkedList<String>(nomesCidades);
     }
 }
