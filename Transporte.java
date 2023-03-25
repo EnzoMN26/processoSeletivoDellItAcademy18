@@ -8,7 +8,7 @@ public class Transporte {
     private int distanciaTotal;
     private ArrayList<Double[]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
     private ArrayList<String> cidades; //Armazena todas as cidades do trajeto;
-    private ArrayList<String[]> produtos; //Armazena todos os produtos, com suas quantidades e pesos.
+    private ArrayList<String[]> itens; //Armazena todos os itens, com suas quantidades e pesos.
     private Caminhao caminhaoPequeno;
     private Caminhao caminhaoMedio;
     private Caminhao caminhaoGrande;
@@ -22,7 +22,7 @@ public class Transporte {
         this.distanciaTotal = 0;
         this.custoTrechos = new ArrayList<>();
         this.cidades = new ArrayList<>();
-        this.produtos = new ArrayList<>();
+        this.itens = new ArrayList<>();
         this.caminhaoPequeno = new Caminhao(4.87);
         this.caminhaoMedio = new Caminhao(11.92);
         this.caminhaoGrande = new Caminhao(27.44);
@@ -64,13 +64,13 @@ public class Transporte {
     }
 
     //Adiciona um produto ao transporte e promove o calculo do peso total que sera usado no metodo "calcula".
-    public void addProduto(String nome, int quantidade, double peso){
+    public void addItem(String nome, int quantidade, double peso){
         String[] temp = new String[3];
         temp[0] = nome;
         temp[1] = ""+quantidade;
-        temp[2] = ""+peso;
+        temp[2] = String.format("%.2f", peso);
         this.pesoTotal += quantidade * peso;
-        this.produtos.add(temp);
+        this.itens.add(temp);
         calculaCaminhoes();
     }
 
@@ -135,13 +135,32 @@ public class Transporte {
     }
 
     //PARA TESTE
-    public ArrayList getCustoTrechos(){
+    public ArrayList<Double[]> getCustoTrechos(){
         return new ArrayList<>(custoTrechos);
     }
 
     //Retorna o custo total.
     public double getCustoTotal(){
         return this.custoTotal;
+    }
+
+    public int getDistanciaTotal(){
+        return this.distanciaTotal;
+    }
+
+    public int getQntItens(){
+        return this.itens.size();
+    }
+
+    public String getInfoItens(){
+        String infos = "";
+        for (int i = 0; i < itens.size(); i++) {
+            infos += "\n" + itens.get(i)[0].toUpperCase() +
+                     "\n    Quantidade: " + itens.get(i)[1] + 
+                     "\n    Peso: " + itens.get(i)[2] + "kg" +
+                     "\n--------------------\n";
+        }
+        return infos;
     }
 
     //Retorna as informacoes referentes ao trechos percorridos no transporte
