@@ -31,7 +31,7 @@ public class Menu {
             catch(InputMismatchException e){opcao1 = -1;}
 
             sc.nextLine();
-            System.out.println("\n\n\n\n\n\n\n\n\n");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
             switch(opcao1){
 
@@ -56,7 +56,7 @@ public class Menu {
                         catch(InputMismatchException e){opcao2 = -1;}
 
                         sc.nextLine();
-                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                         switch(opcao2){
                             case 1: 
@@ -85,7 +85,7 @@ public class Menu {
                                 }catch(NumberFormatException e){aux = -1;}            
                                 
                                 while(true){
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                     Adicionando itens                   |");
@@ -108,7 +108,7 @@ public class Menu {
                                     sc.nextLine();
                                 }
                                 while(true){
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                     Adicionando itens                   |");
@@ -133,7 +133,7 @@ public class Menu {
                                 }
                                 transporte.addItem(nomeItem, qntItem, pesoItem);
 
-                                System.out.println("\n\n\n\n\n\n\n\n\n");
+                                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                 break;
 
@@ -147,7 +147,7 @@ public class Menu {
                                         catch(InputMismatchException e){aux = -1;}
                                         sc.nextLine();
 
-                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                         if(aux == 1){
                                             break;
@@ -173,7 +173,7 @@ public class Menu {
 
                                         sc.nextLine();
 
-                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                         if(aux == 1){
                                             break;
@@ -211,7 +211,7 @@ public class Menu {
                                         catch(InputMismatchException e){opcao2 = -1;}  
 
                                         sc.nextLine();
-                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     
                                         switch(opcao2){
     
@@ -236,7 +236,7 @@ public class Menu {
                                                     }     
                                                 }catch(NumberFormatException e){aux = -1;}  
 
-                                                System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     
                                                 int retorno = transporte.addCidade(nomeCidade);
     
@@ -255,7 +255,7 @@ public class Menu {
                                                         catch(InputMismatchException e){aux = -1;}
 
                                                         sc.nextLine();
-                                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
                                                             break;
@@ -280,7 +280,7 @@ public class Menu {
                                                         catch(InputMismatchException e){aux = -1;}
 
                                                         sc.nextLine();
-                                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
                                                             break;
@@ -291,7 +291,7 @@ public class Menu {
                                                     }
                                                 }
     
-                                                System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                                                 break;
                                             case 2:                                        
                                                 if(transporte.getQntCidades() > 0){
@@ -304,7 +304,7 @@ public class Menu {
                                                         catch(InputMismatchException e){aux = -1;}
 
                                                         sc.nextLine();
-                                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
                                                             break;
@@ -329,7 +329,7 @@ public class Menu {
                                                         catch(InputMismatchException e){aux = -1;}
 
                                                         sc.nextLine();
-                                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
                                                             break;
@@ -349,7 +349,7 @@ public class Menu {
                                                     catch(InputMismatchException e){aux = -1;}
 
                                                     sc.nextLine();
-                                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                                     if(aux == 1){
                                                         break;
@@ -379,7 +379,7 @@ public class Menu {
                                                         catch(InputMismatchException e){aux = -1;}
 
                                                         sc.nextLine();
-                                                        System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         
                                                         if(aux == 1){
                                                             break loopCadastro;
@@ -394,7 +394,7 @@ public class Menu {
 
                                                                 sc.nextLine();
 
-                                                                System.out.println("\n\n\n\n\n\n\n\n\n");
+                                                                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                                                                 if(aux == 1){
                                                                     break;
                                                                 }
@@ -439,15 +439,15 @@ public class Menu {
                             System.out.println(" Nome: ");
 
                             nomeCidade1 = sc.nextLine();
-            
-                                try{
-                                    aux = Integer.parseInt(nomeCidade1);
-                                    if(aux == 0){
-                                        System.exit(0);
-                                    }     
-                                }catch(NumberFormatException e){}  
+                            
+                            try{
+                                aux = Integer.parseInt(nomeCidade1);
+                                if(aux == 0){
+                                    System.exit(0);
+                                }     
+                            }catch(NumberFormatException e){}  
 
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         
                             aux = consulta.addCidade(nomeCidade1);
 
@@ -466,7 +466,7 @@ public class Menu {
                                     catch(InputMismatchException e){aux = -1;}
 
                                     sc.nextLine();
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
                                         break;
@@ -503,8 +503,8 @@ public class Menu {
                                 }     
                             }catch(NumberFormatException e){}  
 
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
-        
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                            
                             aux = consulta.addCidade(nomeCidade2);
 
                             if(aux == 1){
@@ -522,7 +522,7 @@ public class Menu {
                                     catch(InputMismatchException e){aux = -1;}
 
                                     sc.nextLine();
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
                                         break;
@@ -551,7 +551,7 @@ public class Menu {
                                     catch(InputMismatchException e){aux = -1;}
 
                                     sc.nextLine();
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
                                         break;
@@ -588,7 +588,7 @@ public class Menu {
                             catch(InputMismatchException e){aux = -1;}
 
                             sc.nextLine();
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                             String info = "";
 
@@ -607,7 +607,7 @@ public class Menu {
                                     catch(InputMismatchException e){aux = -1;}
 
                                     sc.nextLine();
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
                                         break;
@@ -634,7 +634,7 @@ public class Menu {
                                     catch(InputMismatchException e){aux = -1;}
 
                                     sc.nextLine();
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
                                         break;
@@ -661,7 +661,7 @@ public class Menu {
                                     catch(InputMismatchException e){aux = -1;}
 
                                     sc.nextLine();
-                                    System.out.println("\n\n\n\n\n\n\n\n\n");
+                                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
                                         break;
@@ -692,7 +692,7 @@ public class Menu {
                             catch(InputMismatchException e){aux = -1;}
 
                             sc.nextLine();
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
                                 break;
@@ -717,7 +717,7 @@ public class Menu {
                             catch(InputMismatchException e){aux = -1;}
 
                             sc.nextLine();
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
                                 break;
@@ -744,7 +744,7 @@ public class Menu {
                             catch(InputMismatchException e){aux = -1;}
 
                             sc.nextLine();
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
                                 break;
@@ -768,7 +768,7 @@ public class Menu {
                             catch(InputMismatchException e){aux = -1;}
 
                             sc.nextLine();
-                            System.out.println("\n\n\n\n\n\n\n\n\n");
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
                                 break;

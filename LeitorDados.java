@@ -50,15 +50,15 @@ public class LeitorDados {
     }
 
     public boolean containsCidade(String cidade){
-        cidade = Normalizer.normalize(cidade, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toUpperCase();
+        cidade = Normalizer.normalize(cidade, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toUpperCase();
         return cidadeParaInt.containsKey(cidade);
     }
 
     public int getDistancia(String cidade1, String cidade2){
 
         //Limpando os acentos dos nomes das cidades e tranformando em UpperCase.
-        cidade1 = Normalizer.normalize(cidade1, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toUpperCase();
-        cidade2 = Normalizer.normalize(cidade2, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "").toUpperCase();
+        cidade1 = Normalizer.normalize(cidade1, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toUpperCase();
+        cidade2 = Normalizer.normalize(cidade2, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toUpperCase();
 
         //Retorna a distancia atraves do index de cada cidade identificado pelo dicionario.
         return matrizDistancias[cidadeParaInt.get(cidade1)][cidadeParaInt.get(cidade2)];
