@@ -4,18 +4,19 @@ import java.util.LinkedList;
 
 public class Transporte {
     
-    private double pesoTotal;
-    private double custoTotal;
-    private int distanciaTotal;
+    private double pesoTotal; //Peso total dos itens.
+    private double custoTotal;  //Custo total do transporte.
+    private int distanciaTotal; //Distancia total do transporte
     private ArrayList<Double[]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
     private ArrayList<String> cidades; //Armazena todas as cidades do trajeto;
     private ArrayList<String[]> itens; //Armazena todos os itens, com suas quantidades e pesos.
-    private Caminhao caminhaoPequeno;
-    private Caminhao caminhaoMedio;
-    private Caminhao caminhaoGrande;
-    private LeitorDados leitor;
+    private Caminhao caminhaoPequeno; //Caminhao de capacidade 1 tonelada.
+    private Caminhao caminhaoMedio; //Caminhao de capacidade 4 tonelada.
+    private Caminhao caminhaoGrande; //Caminhao de capacidade 10 tonelada.
+    private LeitorDados leitor; //Objeto que realiza a leitura dos dados.
 
 
+    //Construtor inicializa as variaveis e objetos e promove a leitura dos dados.
     public Transporte(){
 
         this.pesoTotal = 0;
@@ -36,9 +37,6 @@ public class Transporte {
             System.out.println("Erro na leitura do arquivo csv");
             System.exit(0);
         }
-
-        // System.out.printf("Caminhao1: %d \nCaminhao4: %d \nCaminhao10: %d", caminhao1, caminhao4, caminhao10);
-        
     }
     
     /*Adiciona cidade na lista de caminho, caso a cidade exista e ainda nao tenha sido adicionada retorna 0,
@@ -75,7 +73,7 @@ public class Transporte {
         calculaCaminhoes();
     }
 
-
+    //Calcula a menor quantidade de caminhoes necessarias de acordo com o peso total.
     public void calculaCaminhoes(){
         double pesoAtual = pesoTotal;
         caminhaoGrande.setQntCaminhao(0);
@@ -114,7 +112,7 @@ public class Transporte {
         }
     }
 
-    //Funcao que recebe a distancia a ser percorrida e faz os calculos de custo retornando um array com o custo de cada caminhao e o custo somado no trecho.
+    //Calcula os custos de cada caminhao em cada trecho do transporte e tambem acrescenta ao valor do custo total.
     public Double[] calculaCusto(int dist){
 
         Double[] custos = new Double[4];
@@ -130,14 +128,24 @@ public class Transporte {
         return custos;
     }
 
+    //Calcula o custo de um caminhao pequeno para um distancia especifica.
+    public double calculaPequeno(int dist){
+        return caminhaoPequeno.getCusto(dist, 1);
+    }
+
+    //Calcula o custo de um caminhao medio para um distancia especifica.
+    public double calculaMedio(int dist){
+        return caminhaoPequeno.getCusto(dist, 1);
+    }
+
+    //Calcula o custo de um caminhao grande para um distancia especifica.
+    public double calculaGrande(int dist){
+        return caminhaoPequeno.getCusto(dist, 1);
+    }
+
     //Calcula o custo total somando o custo dos trechos.
     private void calculaCustoTotal(double custo){
         this.custoTotal += custo;
-    }
-
-    //PARA TESTE
-    public ArrayList<Double[]> getCustoTrechos(){
-        return new ArrayList<>(custoTrechos);
     }
 
     //Retorna o custo total.
@@ -145,18 +153,22 @@ public class Transporte {
         return this.custoTotal;
     }
 
+    //Retorna a distancia total.
     public int getDistanciaTotal(){
         return this.distanciaTotal;
     }
 
+    //Retorna a quantidade de itens total.
     public int getQntItens(){
         return this.itens.size();
     }
 
+    //Retorna a quantidade de cidades no trajeto.
     public int getQntCidades(){
         return cidades.size();
     }
 
+    //Retorna a lista completa de cidades existentes.
     public String getListaCidades(){
         LinkedList<String> nomes = leitor.getListaCidades();
         String infos = "Lista de cidades:\n";
@@ -166,6 +178,7 @@ public class Transporte {
         return infos;
     }
 
+    //Retorna o trajeto do transporte.
     public String getTrajeto(){
         String infos = "Trajeto:\n";
         int tamanho = cidades.size();
@@ -180,6 +193,7 @@ public class Transporte {
         return infos;
     }
 
+    //Retorna as informacoes necessarias referentes aos itens.
     public String getInfoItens(){
         String infos = "";
         for (int i = 0; i < itens.size(); i++) {
@@ -195,12 +209,14 @@ public class Transporte {
     public String getInfo(){
         String infos = "";
         for (int i = 0; i < cidades.size()-1; i++) {
-            String cidade1 = cidades.get(i);
-            String cidade2 = cidades.get(i+1);
-            infos += "----------------------\n" + cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
-            "\ncustoC1: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + "\ncustoC2: R$" + String.format("%.2f", custoTrechos.get(i)[1]) + "\ncustoC3: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + "\ncustoTrecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------";
+            String cidade1 = cidades.get(i).toUpperCase();
+            String cidade2 = cidades.get(i+1).toUpperCase();
+            infos += cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
+            "\n\nCaminhao Pequeno: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + "\nCaminhao Medio: R$" + 
+            String.format("%.2f", custoTrechos.get(i)[1]) + "\nCaminhao Grande: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + 
+            "\ncustoTrecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------\n";
         }
-        infos += "\nInformacoes gerais\n" +
+        infos += "Informacoes gerais\n" +
                  "\nCaminhoes pequenos: " + caminhaoPequeno.getQuantidade() + " veiculos" +
                  "\nCaminhoes medios: " + caminhaoMedio.getQuantidade() + " veiculos" +
                  "\nCaminhoes grandes: " + caminhaoGrande.getQuantidade() +" veiculos" +

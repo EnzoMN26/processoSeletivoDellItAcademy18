@@ -21,6 +21,11 @@ public class Caminhao {
         
     }
 
+    public double getCusto(int distancia, int qntCaminhao){
+        return (this.preco * distancia) * qntCaminhao;
+        
+    }
+
     public int getQuantidade(){
         return this.qntCaminhao;
     }
