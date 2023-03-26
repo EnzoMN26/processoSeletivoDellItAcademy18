@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -24,7 +25,11 @@ public class Menu {
             System.out.println("x---------------------------------------------------------x");
             System.out.println(" Selecione uma opção:");
             
-            int opcao1 = sc.nextInt();
+            int opcao1 = -1;
+
+            try{opcao1 = sc.nextInt();}
+            catch(InputMismatchException e){opcao1 = -1;}
+
             sc.nextLine();
             System.out.println("\n\n\n\n\n\n\n\n\n");
 
@@ -45,12 +50,21 @@ public class Menu {
                         System.out.println("x---------------------------------------------------------x");
                         System.out.println(" Selecione uma opção:");
 
-                        int opcao2 = sc.nextInt();
+                        int opcao2 = -1;
+
+                        try{opcao2 = sc.nextInt();}
+                        catch(InputMismatchException e){opcao2 = -1;}
+
                         sc.nextLine();
                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                         switch(opcao2){
                             case 1: 
+                                String nomeItem;
+                                int qntItem = -1;
+                                double pesoItem = -1;
+
+
                                 System.out.println("x---------------------------------------------------------x");
                                 System.out.println("|                     Adicionando itens                   |");
                                 System.out.println("|                                                         |");
@@ -61,50 +75,62 @@ public class Menu {
                                 System.out.println("x---------------------------------------------------------x");
                                 System.out.println(" Nome: ");
 
-                                String nomeItem = sc.next();
+                                nomeItem = sc.nextLine();
 
                                 try{
                                     aux = Integer.parseInt(nomeItem);
                                     if(aux == 0){
                                         System.exit(0);
                                     }     
-                                }catch(NumberFormatException e){}            
+                                }catch(NumberFormatException e){aux = -1;}            
                                 
-                                System.out.println("\n\n\n\n\n\n\n\n\n");
+                                while(true){
+                                    System.out.println("\n\n\n\n\n\n\n\n\n");
 
-                                System.out.println("x---------------------------------------------------------x");
-                                System.out.println("|                     Adicionando itens                   |");
-                                System.out.println("|                                                         |");
-                                System.out.println("|                                                         |");
-                                System.out.println("| Digite a quantidade desse item.                         |");
-                                System.out.println("|                                                         |");
-                                System.out.println("|                                               0 - Sair. |");
-                                System.out.println("x---------------------------------------------------------x");
-                                System.out.println(" Quantidade: ");
-
-                                int qntItem = sc.nextInt();
-
-                                if(qntItem == 0){
-                                    System.exit(0);
-                                }
-                                System.out.println("\n\n\n\n\n\n\n\n\n");
-
-                                System.out.println("x---------------------------------------------------------x");
-                                System.out.println("|                     Adicionando itens                   |");
-                                System.out.println("|                                                         |");
-                                System.out.println("|                                                         |");
-                                System.out.println("| Digite o peso desse item. (kg)                          |");
-                                System.out.println("|                                                         |");
-                                System.out.println("|                                               0 - Sair. |");
-                                System.out.println("x---------------------------------------------------------x");
-                                System.out.println(" Peso: ");
+                                    System.out.println("x---------------------------------------------------------x");
+                                    System.out.println("|                     Adicionando itens                   |");
+                                    System.out.println("|                                                         |");
+                                    System.out.println("|                                                         |");
+                                    System.out.println("| Digite a quantidade desse item.                         |");
+                                    System.out.println("|                                                         |");
+                                    System.out.println("|                                               0 - Sair. |");
+                                    System.out.println("x---------------------------------------------------------x");
+                                    System.out.println(" Quantidade: ");
                                 
-                                double pesoItem = sc.nextDouble();
-
-                                if(pesoItem == 0){
-                                    System.exit(0);
+                                    try{
+                                        qntItem = sc.nextInt();
+                                        if(qntItem == 0){
+                                            System.exit(0);
+                                        }
+                                        break;
+                                    }
+                                    catch(InputMismatchException e){qntItem = -1;}  
+                                    sc.nextLine();
                                 }
+                                while(true){
+                                    System.out.println("\n\n\n\n\n\n\n\n\n");
 
+                                    System.out.println("x---------------------------------------------------------x");
+                                    System.out.println("|                     Adicionando itens                   |");
+                                    System.out.println("|                                                         |");
+                                    System.out.println("|                                                         |");
+                                    System.out.println("| Digite o peso desse item. (kg)                          |");
+                                    System.out.println("|                                                         |");
+                                    System.out.println("|                                               0 - Sair. |");
+                                    System.out.println("x---------------------------------------------------------x");
+                                    System.out.println(" Peso: ");
+                                    
+                                    try{
+                                        pesoItem = sc.nextDouble();
+                                        if(pesoItem == 0){
+                                            System.exit(0);
+                                        }
+                                        break;
+                                    }
+                                    catch(InputMismatchException e){pesoItem = -1;} 
+                                    sc.nextLine(); 
+                                    
+                                }
                                 transporte.addItem(nomeItem, qntItem, pesoItem);
 
                                 System.out.println("\n\n\n\n\n\n\n\n\n");
@@ -117,7 +143,10 @@ public class Menu {
                                         System.out.println(transporte.getInfoItens());
                                         System.out.println("\n1 - Concluido                            0 - Sair.");
 
-                                        aux = sc.nextInt();
+                                        try{aux = sc.nextInt();}
+                                        catch(InputMismatchException e){aux = -1;}
+                                        sc.nextLine();
+
                                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                         if(aux == 1){
@@ -139,7 +168,11 @@ public class Menu {
                                         System.out.println("| 1 - Continuar.                                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
 
-                                        aux = sc.nextInt();
+                                        try{aux = sc.nextInt();}
+                                        catch(InputMismatchException e){aux = -1;}
+
+                                        sc.nextLine();
+
                                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                         if(aux == 1){
@@ -168,8 +201,15 @@ public class Menu {
                                         System.out.println("| 4 - Concluido.                                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
                                         System.out.println(" Selecione uma opção:");
-    
-                                        opcao2 = sc.nextInt();
+
+                                        try{
+                                            opcao2 = sc.nextInt();
+                                            if(opcao2 == 0){
+                                                System.exit(0);
+                                            }
+                                        }
+                                        catch(InputMismatchException e){opcao2 = -1;}  
+
                                         sc.nextLine();
                                         System.out.println("\n\n\n\n\n\n\n\n\n");
     
@@ -194,7 +234,7 @@ public class Menu {
                                                     if(aux == 0){
                                                         System.exit(0);
                                                     }     
-                                                }catch(NumberFormatException e){}  
+                                                }catch(NumberFormatException e){aux = -1;}  
 
                                                 System.out.println("\n\n\n\n\n\n\n\n\n");
     
@@ -211,7 +251,10 @@ public class Menu {
                                                         System.out.println("| 1 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
 
-                                                        aux = sc.nextInt();
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+
+                                                        sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
@@ -233,7 +276,10 @@ public class Menu {
                                                         System.out.println("| 1 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
 
-                                                        aux = sc.nextInt();
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+
+                                                        sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
@@ -253,7 +299,11 @@ public class Menu {
                                                         System.out.println(transporte.getTrajeto());
                                                         System.out.println("\n\n1 - Concluido                            0 - Sair.");
 
-                                                        aux = sc.nextInt();
+                                                        
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+
+                                                        sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
@@ -275,7 +325,10 @@ public class Menu {
                                                         System.out.println("| 1 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
 
-                                                        aux = sc.nextInt();
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+
+                                                        sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                                         if(aux == 1){
@@ -292,7 +345,10 @@ public class Menu {
                                                     System.out.println(transporte.getListaCidades());
                                                     System.out.println("\n\n1 - Concluido                            0 - Sair.");
 
-                                                    aux = sc.nextInt();
+                                                    try{aux = sc.nextInt();}
+                                                    catch(InputMismatchException e){aux = -1;}
+
+                                                    sc.nextLine();
                                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                                     if(aux == 1){
@@ -319,7 +375,10 @@ public class Menu {
                                                         System.out.println("| 1 - Continuar. 2 - Visualizar.                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
         
-                                                        aux = sc.nextInt();
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+
+                                                        sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n");
         
                                                         if(aux == 1){
@@ -329,7 +388,12 @@ public class Menu {
                                                             while(true){
                                                                 System.out.println(transporte.getInfo());
                                                                 System.out.println("\n\n1 - Concluido                            0 - Sair.");
-                                                                aux = sc.nextInt();
+                                                                
+                                                                try{aux = sc.nextInt();}
+                                                                catch(InputMismatchException e){aux = -1;}
+
+                                                                sc.nextLine();
+
                                                                 System.out.println("\n\n\n\n\n\n\n\n\n");
                                                                 if(aux == 1){
                                                                     break;
@@ -398,7 +462,9 @@ public class Menu {
                                     System.out.println("| 1 - Continuar. 2 - Voltar.                    0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
-                                    aux = sc.nextInt();
+                                    try{aux = sc.nextInt();}
+                                    catch(InputMismatchException e){aux = -1;}
+
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
@@ -452,7 +518,9 @@ public class Menu {
                                     System.out.println("| 1 - Continuar. 2 - Voltar.                    0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
-                                    aux = sc.nextInt();
+                                    try{aux = sc.nextInt();}
+                                    catch(InputMismatchException e){aux = -1;}
+
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
@@ -479,7 +547,9 @@ public class Menu {
                                     System.out.println("| 1 - Continuar. 2 - Voltar.                    0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
-                                    aux = sc.nextInt();
+                                    try{aux = sc.nextInt();}
+                                    catch(InputMismatchException e){aux = -1;}
+
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
@@ -514,7 +584,10 @@ public class Menu {
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println(" Selecione uma opção:");
 
-                            aux = sc.nextInt();
+                            try{aux = sc.nextInt();}
+                            catch(InputMismatchException e){aux = -1;}
+
+                            sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n");
 
                             String info = "";
@@ -530,7 +603,10 @@ public class Menu {
                                     System.out.println(info);
                                     System.out.println("\n\n1 - Concluido                            0 - Sair.");
 
-                                    aux = sc.nextInt();
+                                    try{aux = sc.nextInt();}
+                                    catch(InputMismatchException e){aux = -1;}
+
+                                    sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
@@ -554,7 +630,10 @@ public class Menu {
                                     System.out.println(info);
                                     System.out.println("\n\n1 - Concluido                            0 - Sair.");
 
-                                    aux = sc.nextInt();
+                                    try{aux = sc.nextInt();}
+                                    catch(InputMismatchException e){aux = -1;}
+
+                                    sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
@@ -578,7 +657,10 @@ public class Menu {
                                     System.out.println(info);
                                     System.out.println("\n\n1 - Concluido                            0 - Sair.");
 
-                                    aux = sc.nextInt();
+                                    try{aux = sc.nextInt();}
+                                    catch(InputMismatchException e){aux = -1;}
+
+                                    sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n");
 
                                     if(aux == 1){
@@ -606,7 +688,10 @@ public class Menu {
                             System.out.println("| 1 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
 
-                            aux = sc.nextInt();
+                            try{aux = sc.nextInt();}
+                            catch(InputMismatchException e){aux = -1;}
+
+                            sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
@@ -622,13 +707,16 @@ public class Menu {
                         while(true){
                             int i = 1;
                             for (Transporte objeto : historicoTransporte) {
-                                System.out.println("Transporte " + i++ + ":");
+                                System.out.println("Transporte " + i++ + ":\n");
                                 System.out.println(objeto.getInfo());
                                 System.out.println("\n\n");
                             }
                             System.out.println("1 - Concluido                            0 - Sair.");
 
-                            aux = sc.nextInt();
+                            try{aux = sc.nextInt();}
+                            catch(InputMismatchException e){aux = -1;}
+
+                            sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
@@ -652,7 +740,10 @@ public class Menu {
                             System.out.println("| 1 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
 
-                            aux = sc.nextInt();
+                            try{aux = sc.nextInt();}
+                            catch(InputMismatchException e){aux = -1;}
+
+                            sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){
@@ -667,13 +758,16 @@ public class Menu {
                         while(true){
                             int i = 1;
                             for (String string : historicoConsultas) {
-                                System.out.println("Consulta " + i++ + ":");
+                                System.out.println("Consulta " + i++ + ":\n");
                                 System.out.println(string);
                                 System.out.println("\n\n");
                             }
                             System.out.println("1 - Concluido                            0 - Sair.");
 
-                            aux = sc.nextInt();
+                            try{aux = sc.nextInt();}
+                            catch(InputMismatchException e){aux = -1;}
+
+                            sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n");
 
                             if(aux == 1){

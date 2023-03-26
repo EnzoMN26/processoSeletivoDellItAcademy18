@@ -135,12 +135,12 @@ public class Transporte {
 
     //Calcula o custo de um caminhao medio para um distancia especifica.
     public double calculaMedio(int dist){
-        return caminhaoPequeno.getCusto(dist, 1);
+        return caminhaoMedio.getCusto(dist, 1);
     }
 
     //Calcula o custo de um caminhao grande para um distancia especifica.
     public double calculaGrande(int dist){
-        return caminhaoPequeno.getCusto(dist, 1);
+        return caminhaoGrande.getCusto(dist, 1);
     }
 
     //Calcula o custo total somando o custo dos trechos.
@@ -211,7 +211,7 @@ public class Transporte {
         for (int i = 0; i < cidades.size()-1; i++) {
             String cidade1 = cidades.get(i).toUpperCase();
             String cidade2 = cidades.get(i+1).toUpperCase();
-            infos += cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
+            infos += "\n" + cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
             "\n\nCaminhao Pequeno: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + "\nCaminhao Medio: R$" + 
             String.format("%.2f", custoTrechos.get(i)[1]) + "\nCaminhao Grande: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + 
             "\ncustoTrecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------\n";
