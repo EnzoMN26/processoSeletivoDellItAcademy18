@@ -432,7 +432,7 @@ public class Menu {
                             System.out.println("|                   Consulta de Trajeto                   |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
-                            System.out.println("| Digite o nome da cidade de partida.                     |");
+                            System.out.println("| Digite o nome da cidade de PARTIDA.                     |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                               0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
@@ -488,7 +488,7 @@ public class Menu {
                             System.out.println("|                   Consulta de Trajeto                   |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
-                            System.out.println("| Digite o nome da cidade de destino.                     |");
+                            System.out.println("| Digite o nome da cidade de DESTINO.                     |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                               0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
