@@ -429,7 +429,7 @@ public class Menu {
                     while(true){
                         while(true){
                             System.out.println("x---------------------------------------------------------x");
-                            System.out.println("|                   Adicionando cidades                   |");
+                            System.out.println("|                   Consulta de Trajeto                   |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
                             System.out.println("| Digite o nome da cidade de partida.                     |");
@@ -454,7 +454,7 @@ public class Menu {
                             if(aux == 2){
                                 while(true){
                                     System.out.println("x---------------------------------------------------------x");
-                                    System.out.println("|                   Adicionando cidades                   |");
+                                    System.out.println("|                   Consulta de Trajeto                   |");
                                     System.out.println("|                                                         |");
                                     System.out.println("|                                                         |");
                                     System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
@@ -485,7 +485,7 @@ public class Menu {
                         }
                         while(true){
                             System.out.println("x---------------------------------------------------------x");
-                            System.out.println("|                   Adicionando cidades                   |");
+                            System.out.println("|                   Consulta de Trajeto                   |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
                             System.out.println("| Digite o nome da cidade de destino.                     |");
@@ -510,7 +510,7 @@ public class Menu {
                             if(aux == 1){
                                 while(true){
                                     System.out.println("x---------------------------------------------------------x");
-                                    System.out.println("|                   Adicionando cidades                   |");
+                                    System.out.println("|                   Consulta de Trajeto                   |");
                                     System.out.println("|                                                         |");
                                     System.out.println("|                                                         |");
                                     System.out.println("| A cidade nao pode ser a mesma de partida!               |");
@@ -539,7 +539,7 @@ public class Menu {
                             else if(aux == 2){
                                 while(true){
                                     System.out.println("x---------------------------------------------------------x");
-                                    System.out.println("|                   Adicionando cidades                   |");
+                                    System.out.println("|                   Consulta de Trajeto                   |");
                                     System.out.println("|                                                         |");
                                     System.out.println("|                                                         |");
                                     System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
