@@ -214,7 +214,7 @@ public class Transporte {
             infos += "\n" + cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
             "\n\nCaminhao Pequeno: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + "\nCaminhao Medio: R$" + 
             String.format("%.2f", custoTrechos.get(i)[1]) + "\nCaminhao Grande: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + 
-            "\ncustoTrecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------\n";
+            "\nCusto do trecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------\n";
         }
         infos += "Informacoes gerais\n" +
                  "\nCaminhoes pequenos: " + caminhaoPequeno.getQuantidade() + " veiculos" +

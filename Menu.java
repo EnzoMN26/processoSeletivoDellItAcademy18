@@ -246,7 +246,7 @@ public class Menu {
                                                 System.out.println("|                                                         |");
                                                 System.out.println("| Digite o nome da cidade a ser adicionada.               |");
                                                 System.out.println("|                                                         |");
-                                                System.out.println("|                                               0 - Sair. |");
+                                                System.out.println("| 6 - Cancelar                                  0 - Sair. |");
                                                 System.out.println("x---------------------------------------------------------x");
                                                 System.out.println(" Nome: ");
                                 
@@ -257,7 +257,10 @@ public class Menu {
                                                     aux = Integer.parseInt(nomeCidade);
                                                     if(aux == 0){
                                                         System.exit(0);
-                                                    }     
+                                                    }
+                                                    else if(aux == 6){
+                                                        break;
+                                                    }    
                                                 }catch(NumberFormatException e){aux = -1;}  
 
                                                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -420,7 +423,7 @@ public class Menu {
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| O transporte foi cadastrado com sucesso!                |");
                                                         System.out.println("|                                                         |");
-                                                        System.out.println("| 5 - Continuar. 6 - Visualizar.                0 - Sair. |");
+                                                        System.out.println("| 5 - Continuar.   6 - Visualizar.              0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
         
                                                         try{aux = sc.nextInt();}
@@ -492,6 +495,8 @@ public class Menu {
 
                             nomeCidade1 = sc.nextLine();
                             
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
                             try{
                                 aux = Integer.parseInt(nomeCidade1);
                                 if(aux == 0){
@@ -501,8 +506,6 @@ public class Menu {
                                     break loopConsulta;
                                 }
                             }catch(NumberFormatException e){}  
-
-                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         
                             aux = consulta.addCidade(nomeCidade1);
 
@@ -514,7 +517,7 @@ public class Menu {
                                     System.out.println("|                                                         |");
                                     System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
                                     System.out.println("|                                                         |");
-                                    System.out.println("| 5 - Continuar. 6 - Cancelar.                  0 - Sair. |");
+                                    System.out.println("| 5 - Continuar.   6 - Cancelar.                0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
                                     try{aux = sc.nextInt();}
@@ -545,20 +548,23 @@ public class Menu {
                             System.out.println("|                                                         |");
                             System.out.println("| Digite o nome da cidade de DESTINO.                     |");
                             System.out.println("|                                                         |");
-                            System.out.println("|                                               0 - Sair. |");
+                            System.out.println("| 6 - Cancelar.                                 0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println(" Nome: ");
 
                             nomeCidade2 = sc.nextLine();
                             
+                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
                             try{
                                 aux = Integer.parseInt(nomeCidade2);
                                 if(aux == 0){
                                     System.exit(0);
-                                }     
+                                }
+                                else if(aux == 6){
+                                    break loopConsulta;
+                                }
                             }catch(NumberFormatException e){}  
-
-                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                             
                             aux = consulta.addCidade(nomeCidade2);
 
@@ -570,7 +576,7 @@ public class Menu {
                                     System.out.println("|                                                         |");
                                     System.out.println("| A cidade nao pode ser a mesma de partida!               |");
                                     System.out.println("|                                                         |");
-                                    System.out.println("| 5 - Continuar. 6 - Cancelar.                  0 - Sair. |");
+                                    System.out.println("| 5 - Continuar.   6 - Cancelar.                0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
                                     try{aux = sc.nextInt();}
@@ -599,7 +605,7 @@ public class Menu {
                                     System.out.println("|                                                         |");
                                     System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
                                     System.out.println("|                                                         |");
-                                    System.out.println("| 5 - Continuar. 6 - Cancelar.                  0 - Sair. |");
+                                    System.out.println("| 5 - Continuar.   6 - Cancelar.                0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
                                     try{aux = sc.nextInt();}
@@ -838,7 +844,8 @@ public class Menu {
                     }
                     break;
                 case 0: 
-                    System.exit(0);
+                sc.close();
+                System.exit(0);
             }
         }
     }
