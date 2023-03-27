@@ -46,7 +46,7 @@ public class Menu {
                         System.out.println("| 1 - Adicionar item.                                     |");
                         System.out.println("| 2 - Consultar itens adicionados.                        |");
                         System.out.println("|                                                         |");
-                        System.out.println("| 3 - Concluido.                                0 - Sair. |");
+                        System.out.println("| 5 - Concluido.   6 - Cancelar.                0 - Sair. |");
                         System.out.println("x---------------------------------------------------------x");
                         System.out.println(" Selecione uma opcao:");
 
@@ -141,7 +141,7 @@ public class Menu {
                                 if(transporte.getQntItens() > 0){
                                     while(true){
                                         System.out.println(transporte.getInfoItens());
-                                        System.out.println("\n1 - Concluido                            0 - Sair.");
+                                        System.out.println("\n5 - Concluido                            0 - Sair.");
 
                                         try{aux = sc.nextInt();}
                                         catch(InputMismatchException e){aux = -1;}
@@ -149,7 +149,7 @@ public class Menu {
 
                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                        if(aux == 1){
+                                        if(aux == 5){
                                             break;
                                         }
                                         else if(aux == 0){
@@ -165,7 +165,7 @@ public class Menu {
                                         System.out.println("|                                                         |");
                                         System.out.println("| A lista esta vazia!                                     |");
                                         System.out.println("|                                                         |");
-                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                        System.out.println("| 5 - Continuar.                                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
 
                                         try{aux = sc.nextInt();}
@@ -175,7 +175,7 @@ public class Menu {
 
                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                        if(aux == 1){
+                                        if(aux == 5){
                                             break;
                                         }
                                         else if(aux == 0){
@@ -184,7 +184,7 @@ public class Menu {
                                     }
                                 }
                                 break;
-                            case 3:
+                            case 5:
                                 if(transporte.getQntItens() == 0){
                                     while(true){
                                         System.out.println("x---------------------------------------------------------x");
@@ -193,7 +193,7 @@ public class Menu {
                                         System.out.println("|                                                         |");
                                         System.out.println("| Adicione no minimo um item para continuar!              |");
                                         System.out.println("|                                                         |");
-                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                        System.out.println("| 5 - Continuar.                                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
 
                                         try{aux = sc.nextInt();}
@@ -203,7 +203,7 @@ public class Menu {
 
                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                        if(aux == 1){
+                                        if(aux == 5){
                                             break;
                                         }
                                         else if(aux == 0){
@@ -222,7 +222,7 @@ public class Menu {
                                         System.out.println("| 2 - Consultar trajeto atual.                            |");
                                         System.out.println("| 3 - Consultar lista de cidades completas.               |");
                                         System.out.println("|                                                         |");
-                                        System.out.println("| 4 - Concluido.                                0 - Sair. |");
+                                        System.out.println("| 5 - Concluido.   6 - Cancelar.                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
                                         System.out.println(" Selecione uma opcao:");
 
@@ -272,7 +272,7 @@ public class Menu {
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| Essa cidade ja faz parte do trajeto!                    |");
                                                         System.out.println("|                                                         |");
-                                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                                        System.out.println("| 5 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
 
                                                         try{aux = sc.nextInt();}
@@ -281,7 +281,7 @@ public class Menu {
                                                         sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                                        if(aux == 1){
+                                                        if(aux == 5){
                                                             break;
                                                         }
                                                         else if(aux == 0){
@@ -297,7 +297,7 @@ public class Menu {
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
                                                         System.out.println("|                                                         |");
-                                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                                        System.out.println("| 5 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
 
                                                         try{aux = sc.nextInt();}
@@ -306,7 +306,7 @@ public class Menu {
                                                         sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                                        if(aux == 1){
+                                                        if(aux == 5){
                                                             break;
                                                         }
                                                         else if(aux == 0){
@@ -321,7 +321,7 @@ public class Menu {
                                                 if(transporte.getQntCidades() > 0){
                                                     while(true){
                                                         System.out.println(transporte.getTrajeto());
-                                                        System.out.println("\n\n1 - Concluido                            0 - Sair.");
+                                                        System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
                                                         
                                                         try{aux = sc.nextInt();}
@@ -330,7 +330,7 @@ public class Menu {
                                                         sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                                        if(aux == 1){
+                                                        if(aux == 5){
                                                             break;
                                                         }
                                                         else if(aux == 0){
@@ -346,7 +346,7 @@ public class Menu {
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| O trajeto esta vazio!                                   |");
                                                         System.out.println("|                                                         |");
-                                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                                        System.out.println("| 5 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
 
                                                         try{aux = sc.nextInt();}
@@ -355,7 +355,7 @@ public class Menu {
                                                         sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                                        if(aux == 1){
+                                                        if(aux == 5){
                                                             break;
                                                         }
                                                         else if(aux == 0){
@@ -367,7 +367,7 @@ public class Menu {
                                             case 3: 
                                                 while(true){
                                                     System.out.println(transporte.getListaCidades());
-                                                    System.out.println("\n\n1 - Concluido                            0 - Sair.");
+                                                    System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
                                                     try{aux = sc.nextInt();}
                                                     catch(InputMismatchException e){aux = -1;}
@@ -375,7 +375,7 @@ public class Menu {
                                                     sc.nextLine();
                                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                                    if(aux == 1){
+                                                    if(aux == 5){
                                                         break;
                                                     }
                                                     else if(aux == 0){
@@ -383,7 +383,7 @@ public class Menu {
                                                     }
                                                 }
                                                 break;
-                                            case 4:
+                                            case 5:
                                                 if(transporte.getQntCidades()  < 2){
                                                     while(true){
                                                         System.out.println("x---------------------------------------------------------x");
@@ -392,7 +392,7 @@ public class Menu {
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| Adicione no minimo duas cidades para continuar!         |");
                                                         System.out.println("|                                                         |");
-                                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                                        System.out.println("| 5 - Continuar.                                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
                 
                                                         try{aux = sc.nextInt();}
@@ -402,7 +402,7 @@ public class Menu {
                 
                                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                 
-                                                        if(aux == 1){
+                                                        if(aux == 5){
                                                             break;
                                                         }
                                                         else if(aux == 0){
@@ -420,7 +420,7 @@ public class Menu {
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| O transporte foi cadastrado com sucesso!                |");
                                                         System.out.println("|                                                         |");
-                                                        System.out.println("| 1 - Continuar. 2 - Visualizar.                0 - Sair. |");
+                                                        System.out.println("| 5 - Continuar. 6 - Visualizar.                0 - Sair. |");
                                                         System.out.println("x---------------------------------------------------------x");
         
                                                         try{aux = sc.nextInt();}
@@ -429,13 +429,13 @@ public class Menu {
                                                         sc.nextLine();
                                                         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         
-                                                        if(aux == 1){
+                                                        if(aux == 5){
                                                             break loopCadastro;
                                                         }
-                                                        else if(aux == 2){
+                                                        else if(aux == 6){
                                                             while(true){
                                                                 System.out.println(transporte.getInfo());
-                                                                System.out.println("\n\n1 - Concluido                            0 - Sair.");
+                                                                System.out.println("\n\n5 - Concluido                            0 - Sair.");
                                                                 
                                                                 try{aux = sc.nextInt();}
                                                                 catch(InputMismatchException e){aux = -1;}
@@ -443,7 +443,7 @@ public class Menu {
                                                                 sc.nextLine();
 
                                                                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-                                                                if(aux == 1){
+                                                                if(aux == 5){
                                                                     break;
                                                                 }
                                                                 else if(aux == 0){
@@ -458,11 +458,15 @@ public class Menu {
                                                     }
                                                     break loopCadastro;
                                                 }
+                                            case 6:
+                                                break loopCadastro;
                                             case 0:
                                                 System.exit(0);
                                         }
                                     }
                                 }
+                            case 6:
+                                break loopCadastro;
                             case 0:
                                 System.exit(0);
                                 break;
@@ -482,7 +486,7 @@ public class Menu {
                             System.out.println("|                                                         |");
                             System.out.println("| Digite o nome da cidade de PARTIDA.                     |");
                             System.out.println("|                                                         |");
-                            System.out.println("|                                               0 - Sair. |");
+                            System.out.println("| 6 - Cancelar.                                 0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println(" Nome: ");
 
@@ -493,6 +497,9 @@ public class Menu {
                                 if(aux == 0){
                                     System.exit(0);
                                 }     
+                                if(aux == 6){
+                                    break loopConsulta;
+                                }
                             }catch(NumberFormatException e){}  
 
                             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -507,7 +514,7 @@ public class Menu {
                                     System.out.println("|                                                         |");
                                     System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
                                     System.out.println("|                                                         |");
-                                    System.out.println("| 1 - Continuar. 2 - Voltar.                    0 - Sair. |");
+                                    System.out.println("| 5 - Continuar. 6 - Cancelar.                  0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
                                     try{aux = sc.nextInt();}
@@ -516,10 +523,10 @@ public class Menu {
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                    if(aux == 1){
+                                    if(aux == 5){
                                         break;
                                     }
-                                    else if(aux == 2){
+                                    else if(aux == 6){
                                         break loopConsulta;
                                     }
                                     else if(aux == 0){
@@ -563,7 +570,7 @@ public class Menu {
                                     System.out.println("|                                                         |");
                                     System.out.println("| A cidade nao pode ser a mesma de partida!               |");
                                     System.out.println("|                                                         |");
-                                    System.out.println("| 1 - Continuar. 2 - Voltar.                    0 - Sair. |");
+                                    System.out.println("| 5 - Continuar. 6 - Cancelar.                  0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
                                     try{aux = sc.nextInt();}
@@ -572,10 +579,10 @@ public class Menu {
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                    if(aux == 1){
+                                    if(aux == 5){
                                         break;
                                     }
-                                    else if(aux == 2){
+                                    else if(aux == 6){
                                         break loopConsulta;
                                     }
                                     else if(aux == 0){
@@ -592,7 +599,7 @@ public class Menu {
                                     System.out.println("|                                                         |");
                                     System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
                                     System.out.println("|                                                         |");
-                                    System.out.println("| 1 - Continuar. 2 - Voltar.                    0 - Sair. |");
+                                    System.out.println("| 5 - Continuar. 6 - Cancelar.                  0 - Sair. |");
                                     System.out.println("x---------------------------------------------------------x");
 
                                     try{aux = sc.nextInt();}
@@ -601,10 +608,10 @@ public class Menu {
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                    if(aux == 1){
+                                    if(aux == 5){
                                         break;
                                     }
-                                    else if(aux == 2){
+                                    else if(aux == 6){
                                         break loopConsulta;
                                     }
                                     else if(aux == 0){
@@ -628,7 +635,7 @@ public class Menu {
                             System.out.println("| 2 - Caminhao de medio porte.                            |");
                             System.out.println("| 3 - Caminhao de grande porte.                           |");
                             System.out.println("|                                                         |");
-                            System.out.println("|                                               0 - Sair. |");
+                            System.out.println("| 6 - Cancelar.                                 0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println(" Selecione uma opcao:");
 
@@ -649,7 +656,7 @@ public class Menu {
                                     "\nModalidade: Caminhao de pequeno porte." + 
                                     "\n-----------------------------";
                                     System.out.println(info);
-                                    System.out.println("\n\n1 - Concluido                            0 - Sair.");
+                                    System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
                                     try{aux = sc.nextInt();}
                                     catch(InputMismatchException e){aux = -1;}
@@ -657,7 +664,7 @@ public class Menu {
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                    if(aux == 1){
+                                    if(aux == 5){
                                         break;
                                     }
                                     else if(aux == 0){
@@ -676,7 +683,7 @@ public class Menu {
                                     "\nModalidade: Caminhao de medio porte." +
                                     "\n-----------------------------";
                                     System.out.println(info);
-                                    System.out.println("\n\n1 - Concluido                            0 - Sair.");
+                                    System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
                                     try{aux = sc.nextInt();}
                                     catch(InputMismatchException e){aux = -1;}
@@ -684,7 +691,7 @@ public class Menu {
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                    if(aux == 1){
+                                    if(aux == 5){
                                         break;
                                     }
                                     else if(aux == 0){
@@ -703,7 +710,7 @@ public class Menu {
                                     "\nModalidade: Caminhao de grande porte." +
                                     "\n-----------------------------";
                                     System.out.println(info);
-                                    System.out.println("\n\n1 - Concluido                            0 - Sair.");
+                                    System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
                                     try{aux = sc.nextInt();}
                                     catch(InputMismatchException e){aux = -1;}
@@ -711,7 +718,7 @@ public class Menu {
                                     sc.nextLine();
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                                    if(aux == 1){
+                                    if(aux == 5){
                                         break;
                                     }
                                     else if(aux == 0){
@@ -719,6 +726,9 @@ public class Menu {
                                     }
                                 }
                                 historicoConsultas.add(info);
+                                break loopConsulta;
+                            }
+                            else if(aux == 6){
                                 break loopConsulta;
                             }
                         }
@@ -733,7 +743,7 @@ public class Menu {
                             System.out.println("|                                                         |");
                             System.out.println("| O historico esta vazio!                                 |");
                             System.out.println("|                                                         |");
-                            System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                            System.out.println("| 5 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
 
                             try{aux = sc.nextInt();}
@@ -742,7 +752,7 @@ public class Menu {
                             sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                            if(aux == 1){
+                            if(aux == 5){
                                 break;
                             }
                             else if(aux == 0){
@@ -759,7 +769,7 @@ public class Menu {
                                 System.out.println(objeto.getInfo());
                                 System.out.println("\n\n");
                             }
-                            System.out.println("1 - Concluido                            0 - Sair.");
+                            System.out.println("5 - Concluido                            0 - Sair.");
 
                             try{aux = sc.nextInt();}
                             catch(InputMismatchException e){aux = -1;}
@@ -767,7 +777,7 @@ public class Menu {
                             sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                            if(aux == 1){
+                            if(aux == 5){
                                 break;
                             }
                             else if(aux == 0){
@@ -785,7 +795,7 @@ public class Menu {
                             System.out.println("|                                                         |");
                             System.out.println("| O historico esta vazio!                                 |");
                             System.out.println("|                                                         |");
-                            System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                            System.out.println("| 5 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
 
                             try{aux = sc.nextInt();}
@@ -794,7 +804,7 @@ public class Menu {
                             sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                            if(aux == 1){
+                            if(aux == 5){
                                 break;
                             }
                             else if(aux == 0){
@@ -810,7 +820,7 @@ public class Menu {
                                 System.out.println(string);
                                 System.out.println("\n\n");
                             }
-                            System.out.println("1 - Concluido                            0 - Sair.");
+                            System.out.println("5 - Concluido                            0 - Sair.");
 
                             try{aux = sc.nextInt();}
                             catch(InputMismatchException e){aux = -1;}
@@ -818,7 +828,7 @@ public class Menu {
                             sc.nextLine();
                             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
-                            if(aux == 1){
+                            if(aux == 5){
                                 break;
                             }
                             else if(aux == 0){
