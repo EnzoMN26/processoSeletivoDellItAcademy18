@@ -23,7 +23,7 @@ public class Menu {
             System.out.println("| 4 - Historico de consultas.                             |");
             System.out.println("| 0 - Sair.                                               |");
             System.out.println("x---------------------------------------------------------x");
-            System.out.println(" Selecione uma opção:");
+            System.out.println(" Selecione uma opcao:");
             
             int opcao1 = -1;
 
@@ -48,7 +48,7 @@ public class Menu {
                         System.out.println("|                                                         |");
                         System.out.println("| 3 - Concluido.                                0 - Sair. |");
                         System.out.println("x---------------------------------------------------------x");
-                        System.out.println(" Selecione uma opção:");
+                        System.out.println(" Selecione uma opcao:");
 
                         int opcao2 = -1;
 
@@ -186,7 +186,31 @@ public class Menu {
                                 break;
                             case 3:
                                 if(transporte.getQntItens() == 0){
-                                    break loopCadastro;
+                                    while(true){
+                                        System.out.println("x---------------------------------------------------------x");
+                                        System.out.println("|                     Adicionando itens                   |");
+                                        System.out.println("|                                                         |");
+                                        System.out.println("|                                                         |");
+                                        System.out.println("| Adicione no minimo um item para continuar!              |");
+                                        System.out.println("|                                                         |");
+                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                        System.out.println("x---------------------------------------------------------x");
+
+                                        try{aux = sc.nextInt();}
+                                        catch(InputMismatchException e){aux = -1;}
+
+                                        sc.nextLine();
+
+                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+                                        if(aux == 1){
+                                            break;
+                                        }
+                                        else if(aux == 0){
+                                            System.exit(0);
+                                        }
+                                    }
+                                    break;
                                 }
                                 else{
                                     while(true){
@@ -200,7 +224,7 @@ public class Menu {
                                         System.out.println("|                                                         |");
                                         System.out.println("| 4 - Concluido.                                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
-                                        System.out.println(" Selecione uma opção:");
+                                        System.out.println(" Selecione uma opcao:");
 
                                         try{
                                             opcao2 = sc.nextInt();
@@ -243,7 +267,7 @@ public class Menu {
                                                 if(retorno == 1){
                                                     while(true){
                                                         System.out.println("x---------------------------------------------------------x");
-                                                        System.out.println("|                   Adicionando cidades                   |");
+                                                        System.out.println("|                  Adicionando cidades                    |");
                                                         System.out.println("|                                                         |");
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| Essa cidade ja faz parte do trajeto!                    |");
@@ -268,7 +292,7 @@ public class Menu {
                                                 else if(retorno == 2){
                                                     while(true){
                                                         System.out.println("x---------------------------------------------------------x");
-                                                        System.out.println("|                   Adicionando cidades                   |");
+                                                        System.out.println("|                  Adicionando cidades                    |");
                                                         System.out.println("|                                                         |");
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| Essa cidade nao existe! Consulte a lista completa.      |");
@@ -317,7 +341,7 @@ public class Menu {
                                                 else{
                                                     while(true){
                                                         System.out.println("x---------------------------------------------------------x");
-                                                        System.out.println("|                     Adicionando cidades                 |");
+                                                        System.out.println("|                   Adicionando cidades                   |");
                                                         System.out.println("|                                                         |");
                                                         System.out.println("|                                                         |");
                                                         System.out.println("| O trajeto esta vazio!                                   |");
@@ -360,8 +384,32 @@ public class Menu {
                                                 }
                                                 break;
                                             case 4:
-                                                if(transporte.getQntCidades() == 0){
-                                                    break loopCadastro;
+                                                if(transporte.getQntCidades()  < 2){
+                                                    while(true){
+                                                        System.out.println("x---------------------------------------------------------x");
+                                                        System.out.println("|                     Adicionando cidades                 |");
+                                                        System.out.println("|                                                         |");
+                                                        System.out.println("|                                                         |");
+                                                        System.out.println("| Adicione no minimo duas cidades para continuar!         |");
+                                                        System.out.println("|                                                         |");
+                                                        System.out.println("| 1 - Continuar.                                0 - Sair. |");
+                                                        System.out.println("x---------------------------------------------------------x");
+                
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+                
+                                                        sc.nextLine();
+                
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                
+                                                        if(aux == 1){
+                                                            break;
+                                                        }
+                                                        else if(aux == 0){
+                                                            System.exit(0);
+                                                        }
+                                                    }
+                                                    break;
                                                 }
                                                 else{
                                                     historicoTransporte.add(transporte);
@@ -582,7 +630,7 @@ public class Menu {
                             System.out.println("|                                                         |");
                             System.out.println("|                                               0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
-                            System.out.println(" Selecione uma opção:");
+                            System.out.println(" Selecione uma opcao:");
 
                             try{aux = sc.nextInt();}
                             catch(InputMismatchException e){aux = -1;}
@@ -683,7 +731,7 @@ public class Menu {
                             System.out.println("|                 Historico de Transporte                 |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
-                            System.out.println("| O histórico esta vazio!                                 |");
+                            System.out.println("| O historico esta vazio!                                 |");
                             System.out.println("|                                                         |");
                             System.out.println("| 1 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
@@ -735,7 +783,7 @@ public class Menu {
                             System.out.println("|                 Historico de Consultas                  |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
-                            System.out.println("| O histórico esta vazio!                                 |");
+                            System.out.println("| O historico esta vazio!                                 |");
                             System.out.println("|                                                         |");
                             System.out.println("| 1 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");

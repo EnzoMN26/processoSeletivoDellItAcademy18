@@ -49,11 +49,13 @@ public class LeitorDados {
         br.close();
     }
 
+    //Verifica a existencia da cidade recebida por parametro na lista de cidades, retornando um boolean.
     public boolean containsCidade(String cidade){
         cidade = Normalizer.normalize(cidade, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toUpperCase();
         return cidadeParaInt.containsKey(cidade);
     }
 
+    //Retorna a distancia entre as duas cidades passadas por parametro.
     public int getDistancia(String cidade1, String cidade2){
 
         //Limpando os acentos dos nomes das cidades e tranformando em UpperCase.
@@ -64,6 +66,7 @@ public class LeitorDados {
         return matrizDistancias[cidadeParaInt.get(cidade1)][cidadeParaInt.get(cidade2)];
     }
 
+    //Retorna uma copia da lista completa de cidades, de maneira a nao dar acesso a lista original.
     public LinkedList<String> getListaCidades(){
         return new LinkedList<String>(nomesCidades);
     }
