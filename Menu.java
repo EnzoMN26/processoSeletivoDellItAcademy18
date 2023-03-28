@@ -2,17 +2,23 @@ import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+/*Essa classe possui todas as telas e tratamentos necessarios para a nao geracao de erros no programa.
+ *Ela foi muito bem trabalhada e pensada para nao atrapalhar a experiencia do usuario,
+ e servir como um menu de facil interacao e entendimento.
+*/
+
 public class Menu {
     
-    LinkedList<Transporte> historicoTransporte = new LinkedList<>();
-    LinkedList<String> historicoConsultas = new LinkedList<>();
-    int aux;
+    LinkedList<Transporte> historicoTransporte = new LinkedList<>(); //Armazena os transportes cadastrados.
+    LinkedList<String> historicoConsultas = new LinkedList<>(); //Armazena as consultas efetuadas.
+    int aux; //Variavel para armazenamento das opcoes selecionadas.
 
+    //Metodo para inicializacao do menu.
     public void start(){
         Scanner sc = new Scanner(System.in);
 
         while(true){
-            
+            //Menu principal da aplicacao.
             System.out.println("x---------------------------------------------------------x");
             System.out.println("|                   Menu de Transporte                    |");
             System.out.println("|                                                         |");
@@ -39,6 +45,7 @@ public class Menu {
                     Transporte transporte = new Transporte();
                     loopCadastro:
                     while(true){
+                        //Menu de adicao de itens ao transporte.
                         System.out.println("x---------------------------------------------------------x");
                         System.out.println("|                     Adicionando itens                   |");
                         System.out.println("|                                                         |");
@@ -64,7 +71,7 @@ public class Menu {
                                 int qntItem = -1;
                                 double pesoItem = -1;
 
-
+                                //Requisicao do nome do item a ser adicionado.
                                 System.out.println("x---------------------------------------------------------x");
                                 System.out.println("|                     Adicionando itens                   |");
                                 System.out.println("|                                                         |");
@@ -86,7 +93,8 @@ public class Menu {
                                 
                                 while(true){
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-
+                                    
+                                    //Requisicao da quantidade do item a ser adicionado.
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                     Adicionando itens                   |");
                                     System.out.println("|                                                         |");
@@ -110,6 +118,7 @@ public class Menu {
                                 while(true){
                                     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
+                                    //Requisicao do peso do item a ser adicionado.
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                     Adicionando itens                   |");
                                     System.out.println("|                                                         |");
@@ -140,6 +149,8 @@ public class Menu {
                             case 2:      
                                 if(transporte.getQntItens() > 0){
                                     while(true){
+
+                                        //Tela para mostrar as informacoes dos itens adicionados ate o momento.
                                         System.out.println(transporte.getInfoItens());
                                         System.out.println("\n5 - Concluido                            0 - Sair.");
 
@@ -159,6 +170,8 @@ public class Menu {
                                 }
                                 else{
                                     while(true){
+
+                                        //Erro de visualizacao dos itens caso nao haja nenhum.
                                         System.out.println("x---------------------------------------------------------x");
                                         System.out.println("|                     Adicionando itens                   |");
                                         System.out.println("|                                                         |");
@@ -187,6 +200,8 @@ public class Menu {
                             case 5:
                                 if(transporte.getQntItens() == 0){
                                     while(true){
+
+                                        //Erro caso o transporte tente ser criado sem nenhum item a ser transportado.
                                         System.out.println("x---------------------------------------------------------x");
                                         System.out.println("|                     Adicionando itens                   |");
                                         System.out.println("|                                                         |");
@@ -214,6 +229,8 @@ public class Menu {
                                 }
                                 else{
                                     while(true){
+
+                                        //Menu para a adicao de cidades ao transporte.
                                         System.out.println("x---------------------------------------------------------x");
                                         System.out.println("|                   Adicionando cidades                   |");
                                         System.out.println("|                                                         |");
@@ -240,6 +257,8 @@ public class Menu {
                                         switch(opcao2){
     
                                             case 1:
+
+                                                //Requisicao do nome da cidade a ser adicionada.
                                                 System.out.println("x---------------------------------------------------------x");
                                                 System.out.println("|                   Adicionando cidades                   |");
                                                 System.out.println("|                                                         |");
@@ -269,6 +288,8 @@ public class Menu {
     
                                                 if(retorno == 1){
                                                     while(true){
+
+                                                        //Erro caso a cidade ja tenha sido adicionada anteriormente.
                                                         System.out.println("x---------------------------------------------------------x");
                                                         System.out.println("|                  Adicionando cidades                    |");
                                                         System.out.println("|                                                         |");
@@ -294,6 +315,8 @@ public class Menu {
                                                 }
                                                 else if(retorno == 2){
                                                     while(true){
+
+                                                        //Erro caso o nome da cidade nao tenha sido identificado na lista de cidades existentes.
                                                         System.out.println("x---------------------------------------------------------x");
                                                         System.out.println("|                  Adicionando cidades                    |");
                                                         System.out.println("|                                                         |");
@@ -320,6 +343,8 @@ public class Menu {
                                                 else if(retorno == 0 && transporte.getQntCidades() > 1 && transporte.getQntItens() > 0){
                                                     excluiItens:
                                                     while(true){
+
+                                                        //Tela de confirmacao de descarregamento de item.
                                                         System.out.println("x---------------------------------------------------------x");
                                                         System.out.println("|                  Adicionando cidades                    |");
                                                         System.out.println("|                                                         |");
@@ -337,6 +362,8 @@ public class Menu {
 
                                                         if(aux == 5){
                                                             while(true){
+
+                                                                //Tela para mostrar os itens disponiveis para serem descarregados.
                                                                 System.out.println("Selecione o item que deseja descarregar:\n");
                                                                 System.out.println(transporte.getExcluirItens());
                                                                 System.out.println("\n\n                                       0 - Sair.");
@@ -352,8 +379,10 @@ public class Menu {
                                                                 if(indexItemExcluir > 0 && indexItemExcluir <= transporte.getQntItens()){
                                                                     int qntItemExcluir;
                                                                     while(true){
+
+                                                                        //Requisicao da quantidade que deve ser descarregada do item.
                                                                         System.out.println("x---------------------------------------------------------x");
-                                                                        System.out.println("|                  Adicionando cidades                    |");
+                                                                        System.out.println("|                  Descarregando itens                    |");
                                                                         System.out.println("|                                                         |");
                                                                         System.out.println("|                                                         |");
                                                                         System.out.println("| Digite a quantidade que deseja descarregar.             |");
@@ -378,8 +407,10 @@ public class Menu {
                                                                     }
                                                                     if(transporte.getQntItens()>0){
                                                                         while(true){
+
+                                                                            //Confirmacao se mais algum item deseja ser descarregado na cidade adicionada.
                                                                             System.out.println("x---------------------------------------------------------x");
-                                                                            System.out.println("|                  Adicionando cidades                    |");
+                                                                            System.out.println("|                  Descarregando itens                    |");
                                                                             System.out.println("|                                                         |");
                                                                             System.out.println("|                                                         |");
                                                                             System.out.println("| Deseja descarregar mais algum item?                     |");
@@ -427,6 +458,8 @@ public class Menu {
                                             case 2:                                        
                                                 if(transporte.getQntCidades() > 0){
                                                     while(true){
+
+                                                        //Tela que apresenta o trajeto construido ate o momento.
                                                         System.out.println(transporte.getTrajeto());
                                                         System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
@@ -447,6 +480,8 @@ public class Menu {
                                                 }
                                                 else{
                                                     while(true){
+
+                                                        //Erro caso tente verificar o trajeto sem nenhuma cidade adicionada.
                                                         System.out.println("x---------------------------------------------------------x");
                                                         System.out.println("|                   Adicionando cidades                   |");
                                                         System.out.println("|                                                         |");
@@ -473,6 +508,8 @@ public class Menu {
                                                 break;
                                             case 3: 
                                                 while(true){
+
+                                                    //Tela que apresenta a lista completa de cidades.
                                                     System.out.println(transporte.getListaCidades());
                                                     System.out.println("\n\n5 - Concluido                            0 - Sair.");
 
@@ -493,6 +530,8 @@ public class Menu {
                                             case 5:
                                                 if(transporte.getQntCidades()  < 2){
                                                     while(true){
+
+                                                        //Erro caso um transporte tente ser criado com menos de duas cidades.
                                                         System.out.println("x---------------------------------------------------------x");
                                                         System.out.println("|                     Adicionando cidades                 |");
                                                         System.out.println("|                                                         |");
@@ -521,6 +560,8 @@ public class Menu {
                                                 else{
                                                     historicoTransporte.add(transporte);
                                                     while(true){
+
+                                                        //Mensagem para informar o sucesso no cadastro do transporte.
                                                         System.out.println("x---------------------------------------------------------x");
                                                         System.out.println("|                   Cadastro de transporte                |");
                                                         System.out.println("|                                                         |");
@@ -541,6 +582,8 @@ public class Menu {
                                                         }
                                                         else if(aux == 6){
                                                             while(true){
+
+                                                                //Tela que apresenta as informacoes do transporte entao cadastrado.
                                                                 System.out.println(transporte.getInfo());
                                                                 System.out.println("\n\n5 - Concluido                            0 - Sair.");
                                                                 
@@ -587,6 +630,8 @@ public class Menu {
                     loopConsulta:
                     while(true){
                         while(true){
+
+                            //Requisicao do nome da cidade de partida da consulta de trajeto.
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println("|                   Consulta de Trajeto                   |");
                             System.out.println("|                                                         |");
@@ -615,6 +660,8 @@ public class Menu {
 
                             if(aux == 2){
                                 while(true){
+
+                                    //Erro caso a cidade mencionada nao esteja na lista de cidades existentes.
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                   Consulta de Trajeto                   |");
                                     System.out.println("|                                                         |");
@@ -646,6 +693,8 @@ public class Menu {
                             }
                         }
                         while(true){
+
+                            //Requisicao do nome da cidade de destino da consulta de trajeto.
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println("|                   Consulta de Trajeto                   |");
                             System.out.println("|                                                         |");
@@ -674,6 +723,8 @@ public class Menu {
 
                             if(aux == 1){
                                 while(true){
+
+                                    //Erro caso a cidade de destino seja a mesma que a de partida.
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                   Consulta de Trajeto                   |");
                                     System.out.println("|                                                         |");
@@ -703,6 +754,8 @@ public class Menu {
                             }
                             else if(aux == 2){
                                 while(true){
+
+                                    //Erro caso a cidade mencionada nao esteja na lista de cidades existentes.
                                     System.out.println("x---------------------------------------------------------x");
                                     System.out.println("|                   Consulta de Trajeto                   |");
                                     System.out.println("|                                                         |");
@@ -736,6 +789,8 @@ public class Menu {
                         int distancia = consulta.getDistanciaTotal();
 
                         while(true){
+
+                            //Requisicao do tipo de modalidade que deve ser feita a consulta.
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println("|                       Modalidade                        |");
                             System.out.println("|                                                         |");
@@ -759,6 +814,8 @@ public class Menu {
 
                             if(aux == 1){
                                 while(true){
+
+                                    //Tela que apresenta as informacoes da consulta de trajeto solicitada.
                                     info = "-----------------------------\n" +
                                     nomeCidade1.toUpperCase() + " ---> " + nomeCidade2.toUpperCase() + 
                                     "\n\nDistancia: " + consulta.getDistanciaTotal() + "km" +
@@ -786,6 +843,8 @@ public class Menu {
                             }
                             else if(aux == 2){
                                 while(true){
+
+                                    //Tela que apresenta as informacoes da consulta de trajeto solicitada.
                                     info = "-----------------------------\n" +
                                     nomeCidade1.toUpperCase() + " ---> " + nomeCidade2.toUpperCase() + 
                                     "\n\nDistancia: " + consulta.getDistanciaTotal() + "km" +
@@ -813,6 +872,8 @@ public class Menu {
                             }
                             else if(aux == 3){
                                 while(true){
+
+                                    //Tela que apresenta as informacoes da consulta de trajeto solicitada.
                                     info = "-----------------------------\n" +
                                     nomeCidade1.toUpperCase() + " ---> " + nomeCidade2.toUpperCase() + 
                                     "\n\nDistancia: " + consulta.getDistanciaTotal() + "km" +
@@ -847,11 +908,13 @@ public class Menu {
                 case 3:
                     if(historicoTransporte.size() == 0){
                         while(true){
+
+                            //Erro caso tente ver os transportes cadastrados e nao haja nenhum.
                             System.out.println("x---------------------------------------------------------x");
-                            System.out.println("|                 Historico de Transporte                 |");
+                            System.out.println("|                 Transportes Cadastrados                 |");
                             System.out.println("|                                                         |");
                             System.out.println("|                                                         |");
-                            System.out.println("| O historico esta vazio!                                 |");
+                            System.out.println("| Nenhum transporte cadastrado!                           |");
                             System.out.println("|                                                         |");
                             System.out.println("| 5 - Continuar.                                0 - Sair. |");
                             System.out.println("x---------------------------------------------------------x");
@@ -873,6 +936,8 @@ public class Menu {
                     }
                     else{
                         while(true){
+
+                            //Tela que apresenta os transportes cadastrados ate entao.
                             int i = 1;
                             for (Transporte objeto : historicoTransporte) {
                                 System.out.println("Transporte " + i++ + ":\n");
@@ -899,6 +964,8 @@ public class Menu {
                 case 4: 
                     if(historicoConsultas.size() == 0){
                         while(true){
+
+                            //Erro caso o historico de consultas esteja vazio.
                             System.out.println("x---------------------------------------------------------x");
                             System.out.println("|                 Historico de Consultas                  |");
                             System.out.println("|                                                         |");
@@ -924,6 +991,8 @@ public class Menu {
                     }
                     else{
                         while(true){
+
+                            //Tela que apresenta as consultas efetuadas ate entao.
                             int i = 1;
                             for (String string : historicoConsultas) {
                                 System.out.println("Consulta " + i++ + ":\n");

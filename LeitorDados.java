@@ -11,8 +11,10 @@ public class LeitorDados {
     
     //Dicionario que faz a associacao de uma cidade ao seu index na matriz de dados.
     private Map<String, Integer> cidadeParaInt;
+
     //Matriz onde ficaram armazenadas as distancias entre cidades.
     private Integer[][] matrizDistancias;
+
     //Lista com todas as cidades.
     private LinkedList<String> nomesCidades;
 
@@ -26,7 +28,7 @@ public class LeitorDados {
         BufferedReader br = new BufferedReader(new FileReader("distancias.csv"));
         String line = br.readLine();
 
-        //Construcao do didicionario entre cidade e index.
+        //Construcao do dicionario entre cidade e index.
         int i = 0;
         for (String cidade : line.split(";")) {
             cidadeParaInt.put(cidade, i++);
