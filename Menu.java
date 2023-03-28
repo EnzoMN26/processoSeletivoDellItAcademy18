@@ -940,7 +940,7 @@ public class Menu {
                             //Tela que apresenta os transportes cadastrados ate entao.
                             int i = 1;
                             for (Transporte objeto : historicoTransporte) {
-                                System.out.println("Transporte " + i++ + ":\n");
+                                System.out.println("TRANSPORTE " + i++ + ":\n");
                                 System.out.println(objeto.getInfo());
                                 System.out.println("\n\n");
                             }
