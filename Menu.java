@@ -27,7 +27,7 @@ public class Menu {
             System.out.println("| 2 - Consultar custo de trajeto.                         |");
             System.out.println("| 3 - Transportes cadastrados.                            |");
             System.out.println("| 4 - Historico de consultas.                             |");
-            System.out.println("| 0 - Sair.                                               |");
+            System.out.println("|                                               0 - Sair. |");
             System.out.println("x---------------------------------------------------------x");
             System.out.println(" Selecione uma opcao:");
             
