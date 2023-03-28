@@ -10,10 +10,12 @@ public class Transporte {
     private ArrayList<Double[]> custoTrechos; //Armazena o custo de cada caminhao e o custo total de cada trecho.
     private ArrayList<String> cidades; //Armazena todas as cidades do trajeto;
     private ArrayList<String[]> itens; //Armazena todos os itens, com suas quantidades e pesos.
+    private ArrayList<Integer[]> caminhoesPorTrecho; //Armazena a quantidade de caminhoes em cada trecho.
     private Caminhao caminhaoPequeno; //Caminhao de capacidade 1 tonelada.
     private Caminhao caminhaoMedio; //Caminhao de capacidade 4 tonelada.
     private Caminhao caminhaoGrande; //Caminhao de capacidade 10 tonelada.
     private LeitorDados leitor; //Objeto que realiza a leitura dos dados.
+    
 
 
     //Construtor inicializa as variaveis e objetos e promove a leitura dos dados.
@@ -25,6 +27,7 @@ public class Transporte {
         this.custoTrechos = new ArrayList<>();
         this.cidades = new ArrayList<>();
         this.itens = new ArrayList<>();
+        this.caminhoesPorTrecho = new ArrayList<>();
         this.caminhaoPequeno = new Caminhao(4.87);
         this.caminhaoMedio = new Caminhao(11.92);
         this.caminhaoGrande = new Caminhao(27.44);
@@ -51,6 +54,7 @@ public class Transporte {
                 int tamanho = cidades.size();
 
                 if(tamanho > 1){
+                    calculaCaminhoes();
                     int distancia = leitor.getDistancia(cidades.get(tamanho-2), cidade);
                     this.distanciaTotal += distancia;
                     custoTrechos.add(calculaCusto(distancia));
@@ -62,7 +66,7 @@ public class Transporte {
         return 2;
     }
 
-    //Adiciona um produto ao transporte e promove o calculo do peso total que sera usado no metodo "calcula".
+    //Adiciona um item ao transporte e promove o calculo do peso total que sera usado no metodo "calcula".
     public void addItem(String nome, int quantidade, double peso){
         String[] temp = new String[3];
         temp[0] = nome;
@@ -70,7 +74,19 @@ public class Transporte {
         temp[2] = String.format("%.2f", peso);
         this.pesoTotal += quantidade * peso;
         this.itens.add(temp);
-        calculaCaminhoes();
+    }
+
+    //Remove um item do transporte. Utilizado para descarregar.
+    public void removeItem(int index, int qnt){
+        double resultado = Integer.parseInt(itens.get(index)[1]) - qnt;
+        if(resultado <= 0){
+            pesoTotal -= Integer.parseInt(itens.get(index)[1])  * Double.parseDouble(itens.get(index)[2].replace(",", "."));
+            itens.remove(index); 
+        }
+        else{
+            itens.get(index)[1] = String.format("%.0f", resultado);
+            pesoTotal -= qnt * Double.parseDouble(itens.get(index)[2].replace(",", "."));
+        }
     }
 
     //Calcula a menor quantidade de caminhoes necessarias de acordo com o peso total.
@@ -116,12 +132,20 @@ public class Transporte {
     public Double[] calculaCusto(int dist){
 
         Double[] custos = new Double[4];
+        Integer[] qntCaminhoes = new Integer[3];
 
         //Adiciona o custo de cada caminhao no trecho em especifico.
         custos[0] = caminhaoPequeno.getCusto(dist);
         custos[1] = caminhaoMedio.getCusto(dist);
         custos[2] = caminhaoGrande.getCusto(dist);
         custos[3] = custos[0] + custos[1] + custos[2];
+
+        //Adiciona a quantidade de cada caminhao no trecho.
+        qntCaminhoes[0] = caminhaoPequeno.getQuantidade();
+        qntCaminhoes[1] = caminhaoMedio.getQuantidade();
+        qntCaminhoes[2] = caminhaoGrande.getQuantidade();
+
+        caminhoesPorTrecho.add(qntCaminhoes);
 
         calculaCustoTotal(custos[3]);
 
@@ -168,6 +192,16 @@ public class Transporte {
         return cidades.size();
     }
 
+    public String getExcluirItens(){
+        String infos = "";
+        int i = 1;
+        for (String[] iten : itens) {
+            infos += "\n" + i + " - " + iten[0] + " | Quantidade: " + iten[1];
+            i++;
+        }
+        return infos;
+    }
+
     //Retorna a lista completa de cidades existentes.
     public String getListaCidades(){
         LinkedList<String> nomes = leitor.getListaCidades();
@@ -212,16 +246,16 @@ public class Transporte {
             String cidade1 = cidades.get(i).toUpperCase();
             String cidade2 = cidades.get(i+1).toUpperCase();
             infos += "\n" + cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
-            "\n\nCaminhao Pequeno: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + "\nCaminhao Medio: R$" + 
-            String.format("%.2f", custoTrechos.get(i)[1]) + "\nCaminhao Grande: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + 
-            "\nCusto do trecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------\n";
+            "\n\nCaminhao Pequeno - Custo: R$" + String.format("%.2f", custoTrechos.get(i)[0])  + " | Quantidade:" + caminhoesPorTrecho.get(i)[0] + 
+            "\nCaminhao Medio - Custo: R$" + String.format("%.2f", custoTrechos.get(i)[1]) + " | Quantidade:" + caminhoesPorTrecho.get(i)[1] + 
+            "\nCaminhao Grande - Custo: R$" + String.format("%.2f", custoTrechos.get(i)[2]) + " | Quantidade:" + caminhoesPorTrecho.get(i)[2] + 
+            "\nCusto total do trecho: R$" + String.format("%.2f", custoTrechos.get(i)[3]) + "\n----------------------\n";
         }
         infos += "Informacoes gerais\n" +
-                 "\nCaminhoes pequenos: " + caminhaoPequeno.getQuantidade() + " veiculos" +
-                 "\nCaminhoes medios: " + caminhaoMedio.getQuantidade() + " veiculos" +
-                 "\nCaminhoes grandes: " + caminhaoGrande.getQuantidade() +" veiculos" +
-                 "\nCusto total: R$" + String.format("%.2f", custoTotal) +
-                 "\nPeso total: " + pesoTotal;
+                 "\nTotal de caminhoes pequenos: " + caminhaoPequeno.getQntMaxima() + " veiculos" +
+                 "\nTotal de caminhoes medios: " + caminhaoMedio.getQntMaxima() + " veiculos" +
+                 "\nTotal de caminhoes grandes: " + caminhaoGrande.getQntMaxima() +" veiculos" +
+                 "\nCusto total: R$" + String.format("%.2f", custoTotal);
         return infos;
     }
 }

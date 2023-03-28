@@ -2,18 +2,22 @@ public class Caminhao {
 
     private double preco;
     private int qntCaminhao;
+    private int qntMaxima;
 
     public Caminhao(double preco){
         this.preco = preco;
         this.qntCaminhao = 0;
+        this.qntMaxima = 0;
     }
 
     public void setQntCaminhao(double qnt){
         this.qntCaminhao = (int) qnt;
+        setQntMaxima();
     };
 
     public void addQntCaminhao(int qnt){
         this.qntCaminhao += qnt;
+        setQntMaxima();
     };
 
     public double getCusto(int distancia){
@@ -28,5 +32,15 @@ public class Caminhao {
 
     public int getQuantidade(){
         return this.qntCaminhao;
+    }
+
+    public int getQntMaxima(){
+        return qntMaxima;
+    }
+
+    public void setQntMaxima(){
+        if(qntCaminhao > qntMaxima){
+            qntMaxima = qntCaminhao;
+        }
     }
 }

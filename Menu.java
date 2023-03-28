@@ -317,6 +317,110 @@ public class Menu {
                                                         }
                                                     }
                                                 }
+                                                else if(retorno == 0 && transporte.getQntCidades() > 1 && transporte.getQntItens() > 0){
+                                                    excluiItens:
+                                                    while(true){
+                                                        System.out.println("x---------------------------------------------------------x");
+                                                        System.out.println("|                  Adicionando cidades                    |");
+                                                        System.out.println("|                                                         |");
+                                                        System.out.println("|                                                         |");
+                                                        System.out.println("| Deseja descarregar algum item nessa cidade?             |");
+                                                        System.out.println("|                                                         |");
+                                                        System.out.println("| 5 - Sim.   6 - Nao                            0 - Sair. |");
+                                                        System.out.println("x---------------------------------------------------------x");
+
+                                                        try{aux = sc.nextInt();}
+                                                        catch(InputMismatchException e){aux = -1;}
+
+                                                        sc.nextLine();
+                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+                                                        if(aux == 5){
+                                                            while(true){
+                                                                System.out.println("Selecione o item que deseja descarregar:\n");
+                                                                System.out.println(transporte.getExcluirItens());
+                                                                System.out.println("\n\n                                       0 - Sair.");
+        
+                                                                int indexItemExcluir;
+
+                                                                try{indexItemExcluir = sc.nextInt();}
+                                                                catch(InputMismatchException e){indexItemExcluir = -1;}
+        
+                                                                sc.nextLine();
+                                                                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        
+                                                                if(indexItemExcluir > 0 && indexItemExcluir <= transporte.getQntItens()){
+                                                                    int qntItemExcluir;
+                                                                    while(true){
+                                                                        System.out.println("x---------------------------------------------------------x");
+                                                                        System.out.println("|                  Adicionando cidades                    |");
+                                                                        System.out.println("|                                                         |");
+                                                                        System.out.println("|                                                         |");
+                                                                        System.out.println("| Digite a quantidade que deseja descarregar.             |");
+                                                                        System.out.println("|                                                         |");
+                                                                        System.out.println("|                                               0 - Sair. |");
+                                                                        System.out.println("x---------------------------------------------------------x");
+
+                                                                        try{
+                                                                            qntItemExcluir = sc.nextInt();
+                                                                            if(qntItemExcluir == 0){
+                                                                                System.exit(0);
+                                                                            }
+                                                                            sc.nextLine();
+                                                                            transporte.removeItem(indexItemExcluir-1, qntItemExcluir);
+                                                                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                                    
+                                                                            break;
+                                                                        }
+                                                                        catch(InputMismatchException e){qntItemExcluir = -1;}
+                                                                        sc.nextLine();
+                                                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                                                                    }
+                                                                    if(transporte.getQntItens()>0){
+                                                                        while(true){
+                                                                            System.out.println("x---------------------------------------------------------x");
+                                                                            System.out.println("|                  Adicionando cidades                    |");
+                                                                            System.out.println("|                                                         |");
+                                                                            System.out.println("|                                                         |");
+                                                                            System.out.println("| Deseja descarregar mais algum item?                     |");
+                                                                            System.out.println("|                                                         |");
+                                                                            System.out.println("| 5 - Sim.   6 - Nao.                           0 - Sair. |");
+                                                                            System.out.println("x---------------------------------------------------------x");
+                    
+                                                                            try{aux = sc.nextInt();}
+                                                                            catch(InputMismatchException e){aux = -1;}
+                    
+                                                                            sc.nextLine();
+                                                                            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    
+                                                                            if(aux == 5){
+                                                                                break;
+                                                                            }
+                                                                            else if(aux == 6){
+                                                                                break excluiItens;
+                                                                            }
+                                                                            else if(aux == 0){
+                                                                                System.exit(0);
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    else{
+                                                                        break excluiItens;
+                                                                    }
+                                                                }
+                                                                else if (indexItemExcluir == 0){
+                                                                    System.exit(0);
+                                                                }
+                                                            }
+                                                        }
+                                                        else if(aux == 6){
+                                                            break;
+                                                        }
+                                                        else if(aux == 0){
+                                                            System.exit(0);
+                                                        }
+                                                    }
+                                                }
     
                                                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                                                 break;
@@ -844,8 +948,8 @@ public class Menu {
                     }
                     break;
                 case 0: 
-                sc.close();
                 System.exit(0);
+                sc.close();
             }
         }
     }
