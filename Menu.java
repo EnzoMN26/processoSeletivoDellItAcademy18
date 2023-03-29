@@ -229,6 +229,7 @@ public class Menu {
                                 }
                                 else{
                                     while(true){
+                                        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
                                         //Menu para a adicao de cidades ao transporte.
                                         System.out.println("x---------------------------------------------------------x");
