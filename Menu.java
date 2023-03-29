@@ -237,7 +237,7 @@ public class Menu {
                                         System.out.println("|                                                         |");
                                         System.out.println("| 1 - Adicionar cidade.                                   |");
                                         System.out.println("| 2 - Consultar trajeto atual.                            |");
-                                        System.out.println("| 3 - Consultar lista de cidades completas.               |");
+                                        System.out.println("| 3 - Consultar lista de cidades completa.                |");
                                         System.out.println("|                                                         |");
                                         System.out.println("| 5 - Concluido.   6 - Cancelar.                0 - Sair. |");
                                         System.out.println("x---------------------------------------------------------x");
