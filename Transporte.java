@@ -14,8 +14,8 @@ public class Transporte {
     private ArrayList<ArrayList<String>> itensPorTrecho; //Armazena os itens que sao levados em cada trecho.
     private ArrayList<Integer[]> caminhoesPorTrecho; //Armazena a quantidade de caminhoes em cada trecho.
     private Caminhao caminhaoPequeno; //Caminhao de capacidade 1 tonelada.
-    private Caminhao caminhaoMedio; //Caminhao de capacidade 4 tonelada.
-    private Caminhao caminhaoGrande; //Caminhao de capacidade 10 tonelada.
+    private Caminhao caminhaoMedio; //Caminhao de capacidade 4 toneladas.
+    private Caminhao caminhaoGrande; //Caminhao de capacidade 10 toneladas.
     private LeitorDados leitor; //Objeto que realiza a leitura dos dados.
     
 
