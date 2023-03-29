@@ -271,9 +271,9 @@ public class Transporte {
             String cidade1 = cidades.get(i).toUpperCase();
             String cidade2 = cidades.get(i+1).toUpperCase();
             infos += "\n" + cidade1 + " --> " + leitor.getDistancia(cidade1, cidade2) + "km --> " + cidade2 + 
-            "\n\nCaminhao Pequeno - Custo: R$ " + String.format("%.2f", custoTrechos.get(i)[0])  + " | Quantidade:" + caminhoesPorTrecho.get(i)[0] + 
-            "\nCaminhao Medio - Custo: R$ " + String.format("%.2f", custoTrechos.get(i)[1]) + " | Quantidade:" + caminhoesPorTrecho.get(i)[1] + 
-            "\nCaminhao Grande - Custo: R$ " + String.format("%.2f", custoTrechos.get(i)[2]) + " | Quantidade:" + caminhoesPorTrecho.get(i)[2] + 
+            "\n\nCaminhao Pequeno - Custo: R$ " + String.format("%.2f", custoTrechos.get(i)[0])  + " | Quantidade: " + caminhoesPorTrecho.get(i)[0] + 
+            "\nCaminhao Medio - Custo: R$ " + String.format("%.2f", custoTrechos.get(i)[1]) + " | Quantidade: " + caminhoesPorTrecho.get(i)[1] + 
+            "\nCaminhao Grande - Custo: R$ " + String.format("%.2f", custoTrechos.get(i)[2]) + " | Quantidade: " + caminhoesPorTrecho.get(i)[2] + 
             "\nCusto total do trecho: R$ " + String.format("%.2f", custoTrechos.get(i)[3]) +
             "\nCusto unitario medio dos itens: R$ " + String.format("%.2f", custoTrechos.get(i)[4]);
             if(itensPorTrecho.get(i).size() > 0){
